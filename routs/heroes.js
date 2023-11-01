@@ -5,11 +5,11 @@ const router=express.Router()
 
 
 router.get("/list",(req,res)=>{
-    const heros=files.read_file("../clean_json/hero_basic.json")
+    const heroes=files.read_file("../clean_json/hero_basic.json")
     res.json({
         status:true,
         msg:"",
-        data:heros
+        data:{heroes_list:heroes}
     })
 
 })
