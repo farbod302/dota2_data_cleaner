@@ -16,7 +16,8 @@ const files = {
     },
     write_clean_json_file(data,name){
         fs.writeFileSync(`${__dirname}/../clean_json/${name}`,JSON.stringify(data))
-    }
+    },
+    CDN_BASE_URL:"https://cdn.cloudflare.steamstatic.com"
 }
 
 module.exports = files

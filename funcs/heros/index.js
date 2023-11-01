@@ -1,5 +1,6 @@
 const { default: axios } = require("axios")
 const fs = require("fs")
+const files = require("../../helpers/files")
 const HERO_LENGTH = 150
 
 const scrap_hero = async (id) => {
@@ -21,4 +22,25 @@ const start_scrap = async () => {
     }
 }
 
-module.exports=start_scrap
+const merge_heros=()=>{
+    const heroes=files.read_file("heroes.json")
+    const heroes_basic=[]
+    for(let i=1;i<=HERO_LENGTH;i++){
+        const hero=heroes[i]
+        if(!hero)continue
+        const {name}=hero
+        const hero_file=files.read_file(`../clean_heros_json/${name}.json`)
+        const {localized_name,img,primary_attr,complexity,id}=hero_file
+        heroes_basic.push({
+            name:localized_name,
+            image:files.CDN_BASE_URL+img,
+            complexity,
+            primary_attr,
+            id
+        })
+
+    }
+    fs.writeFileSync(`${__dirname}/../../clean_json/hero_basic.json`,JSON.stringify(heroes_basic))
+}
+
+module.exports={start_scrap,merge_heros}
