@@ -25,7 +25,7 @@ router.get("/hero_detail/:hero_name", (req, res) => {
     }
     catch {
         res.json({
-            status: true,
+            status: false,
             msg: "Invalid hero name",
             data: {}
         })
