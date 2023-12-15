@@ -36,7 +36,8 @@ const merge_heros=()=>{
             image:files.CDN_BASE_URL+img,
             complexity,
             primary_attr,
-            id
+            id,
+            api_name:name
         })
 
     }

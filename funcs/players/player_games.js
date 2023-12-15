@@ -3,7 +3,7 @@ const { steam_request } = require("../../helpers/steep_api_request")
 const fs = require("fs")
 const player_games = {
 
-    async get_match_history(account_id, start_match) {
+    async get_match_history(account_id) {
         const max_page = 1
         let match_ids = []
         let last_match = null
