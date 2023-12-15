@@ -20,4 +20,3 @@ app.listen(3434)
 
 
 
-merge_heros()
