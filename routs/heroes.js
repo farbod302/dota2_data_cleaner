@@ -13,10 +13,10 @@ router.get("/list", (req, res) => {
 
 })
 
-router.get("/hero_detail/:hero_name", (req, res) => {
+router.get("/hero_detail/:hero_id", (req, res) => {
     try {
-        const { hero_name } = req.params
-        const selected_hero = files.read_file(`../clean_heros_json/${hero_name}.json`)
+        const { hero_id } = req.params
+        const selected_hero = files.read_file(`../clean_heros_json/${hero_id}.json`)
         res.json({
             status: true,
             msg: "",

@@ -1,5 +1,6 @@
 const routs={
-    heroes:require("./heroes")
+    heroes:require("./heroes"),
+    players:require("./players")
 }
 
 module.exports=routs

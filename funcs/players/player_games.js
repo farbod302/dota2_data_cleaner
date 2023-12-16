@@ -19,7 +19,7 @@ const player_games = {
         let now=Date.now()
         const match_details = await this.get_matches_detail(match_ids)
         console.log(`Fetch ${match_details.length} game successfully in ${Date.now() - now} ms`);
-        console.log([match_details[0].result]);
+        return match_details
     },
 
     async get_matches_detail(match_ids) {
