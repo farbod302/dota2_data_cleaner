@@ -92,22 +92,12 @@
                 {
                     "key": "mana_per_hit",
                     "header": "MANA BURNED PER HIT:",
-                    "value": [
-                        "25",
-                        "30",
-                        "35",
-                        "40"
-                    ]
+                    "value": "25 / 30 / 35 / 40"
                 },
                 {
                     "key": "mana_per_hit_pct",
                     "header": "MAX MANA BURNED PER HIT:",
-                    "value": [
-                        "1.6%",
-                        "2.4%",
-                        "3.2%",
-                        "4%"
-                    ]
+                    "value": "1.6% / 2.4% / 3.2% / 4%"
                 },
                 {
                     "key": "illusion_percentage",
@@ -118,12 +108,7 @@
                 {
                     "key": "move_slow",
                     "header": "MOVE SPEED SLOW ON FULL DRAIN:",
-                    "value": [
-                        "25%",
-                        "30%",
-                        "35%",
-                        "40%"
-                    ]
+                    "value": "25% / 30% / 35% / 40%"
                 },
                 {
                     "key": "slow_duration",
@@ -146,12 +131,7 @@
                 {
                     "key": "abilitycastrange",
                     "header": "RANGE:",
-                    "value": [
-                        "750",
-                        "900",
-                        "1050",
-                        "1200"
-                    ]
+                    "value": "750 / 900 / 1050 / 1200"
                 },
                 {
                     "key": "min_blink_range",
@@ -168,12 +148,7 @@
             ],
             "lore": "In his encounter with the Dead Gods, Anti-Mage learned the value of being elusive.",
             "mc": "45",
-            "cd": [
-                "13.5",
-                "11",
-                "8.5",
-                "6"
-            ],
+            "cd": "13.5 / 11 / 8.5 / 6",
             "img": "/apps/dota2/images/dota_react/abilities/antimage_blink.png",
             "ability_has_scepter": false,
             "ability_has_shard": false,
@@ -182,22 +157,14 @@
         },
         {
             "dname": "Counterspell",
-            "behavior": [
-                "No Target",
-                "Instant Cast"
-            ],
+            "behavior": "No Target / Instant Cast",
             "dispellable": "Yes",
             "desc": "Passively grants magic resistance. Counterspell may be activated to create an anti-magic shell around Anti-Mage that blocks and sends any targeted spells back towards enemies instead.",
             "attrib": [
                 {
                     "key": "magic_resistance",
                     "header": "MAGIC RESISTANCE:",
-                    "value": [
-                        "15%",
-                        "25%",
-                        "35%",
-                        "45%"
-                    ]
+                    "value": "15% / 25% / 35% / 45%"
                 },
                 {
                     "key": "duration",
@@ -237,12 +204,7 @@
             ],
             "lore": "With the proper focus, Anti-Mage turns innate resistance into calculated retaliation.",
             "mc": "45",
-            "cd": [
-                "15",
-                "11",
-                "7",
-                "3"
-            ],
+            "cd": "15 / 11 / 7 / 3",
             "img": "/apps/dota2/images/dota_react/abilities/antimage_counterspell.png",
             "ability_has_scepter": false,
             "ability_has_shard": false,
@@ -251,17 +213,10 @@
         },
         {
             "dname": "Blink Fragment",
-            "behavior": [
-                "Point Target",
-                "Unit Target",
-                "Hidden"
-            ],
+            "behavior": "Point Target / Unit Target / Hidden",
             "bkbpierce": "No",
             "target_team": "Enemy",
-            "target_type": [
-                "Hero",
-                "Basic"
-            ],
+            "target_type": "Hero / Basic",
             "desc": "Blinks an illusion to the target enemy or location, which attacks for a brief time. Counterspell is replicated on the Blink Fragment illusion. Has 3 Charges.",
             "attrib": [
                 {
@@ -315,10 +270,7 @@
         },
         {
             "dname": "Counterspell Ally",
-            "behavior": [
-                "Unit Target",
-                "Instant Cast"
-            ],
+            "behavior": "Unit Target / Instant Cast",
             "dispellable": "Yes",
             "target_team": "Friendly",
             "target_type": "Hero",
@@ -371,27 +323,17 @@
         },
         {
             "dname": "Mana Void",
-            "behavior": [
-                "Unit Target",
-                "AOE"
-            ],
+            "behavior": "Unit Target / AOE",
             "dmg_type": "Magical",
             "bkbpierce": "No",
             "target_team": "Enemy",
-            "target_type": [
-                "Hero",
-                "Basic"
-            ],
+            "target_type": "Hero / Basic",
             "desc": "For each point of mana missing by the target unit, damage is dealt to it and surrounding enemies. The main target is also mini-stunned.",
             "attrib": [
                 {
                     "key": "mana_void_damage_per_mana",
                     "header": "DAMAGE:",
-                    "value": [
-                        "0.8",
-                        "0.95",
-                        "1.1"
-                    ]
+                    "value": "0.8 / 0.95 / 1.1"
                 },
                 {
                     "key": "mana_void_ministun",
@@ -417,11 +359,7 @@
                 }
             ],
             "lore": "After bringing enemies to their knees, Anti-Mage punishes them for their use of the arcane arts.",
-            "mc": [
-                "100",
-                "200",
-                "300"
-            ],
+            "mc": "100 / 200 / 300",
             "cd": "70",
             "img": "/apps/dota2/images/dota_react/abilities/antimage_mana_void.png",
             "ability_has_scepter": false,

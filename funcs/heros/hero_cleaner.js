@@ -35,6 +35,26 @@ const hero_cleaner = {
         const hero_aghs = this.all_files.aghs.find(h => h.hero_name === name)
         let clean_abilities = abilities.map(e => {
             const att = this.all_files.abilities[e]
+            const clean_att = { ...att }
+            const keys = ["behavior", "dmg_type", "mc", "cd", "dmg", "target_team", "target_type"]
+            for (let key of keys) {
+                if (clean_att[key] && typeof clean_att[key] === "object") {
+                    clean_att[key] = clean_att[key].join(" / ")
+                }
+            }
+            const clean_attrib = clean_att.attrib.map(a => {
+                let { value } = a
+                if (typeof value === "object") {
+                    value = value.join(" / ")
+                }
+                return {
+                    ...a,
+                    value
+                }
+
+            })
+            clean_att.attrib=clean_attrib
+            console.log({ clean_att:clean_att.attrib });
             const ability_additional_info = hero_file.abilities.find(a => a.name === e)
             if (ability_additional_info) {
                 const {
@@ -45,7 +65,7 @@ const hero_cleaner = {
                 } = ability_additional_info
 
                 return {
-                    ...att, ability_has_scepter,
+                    ...clean_att, ability_has_scepter,
                     ability_has_shard,
                     ability_is_granted_by_scepter,
                     ability_is_granted_by_shard
@@ -60,7 +80,7 @@ const hero_cleaner = {
             ...hero_main_file,
             max_health, max_mana, turn_rate, armor,
             damage_max: primary_attr !== 3 ? damage_max : Math.floor(damage_max + ((str_base + agi_base + int_base) * 0.7)),
-            damage_min: primary_attr !== 3 ? damage_min :Math.floor( damage_min + ((str_base + agi_base + int_base) * 0.7)),
+            damage_min: primary_attr !== 3 ? damage_min : Math.floor(damage_min + ((str_base + agi_base + int_base) * 0.7)),
             complexity: hero_file.complexity,
             talents: clean_tallents,
             abilities: clean_abilities,
