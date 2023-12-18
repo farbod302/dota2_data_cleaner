@@ -1,14 +1,14 @@
 const files = require("../../helpers/files")
-const fs=require("fs")
+const fs = require("fs")
 const hero_cleaner = {
 
     HERO_IDS: 150,
-    
+
     clean_all() {
         for (let i = 1; i <= this.HERO_IDS; i++) {
-            const hero_data=this.clean_hero(i)
-            if(hero_data){
-                fs.writeFileSync(`${__dirname}/../../clean_heros_json/${hero_data.name}.json`,JSON.stringify(hero_data))
+            const hero_data = this.clean_hero(i)
+            if (hero_data) {
+                fs.writeFileSync(`${__dirname}/../../clean_heros_json/${hero_data.id}.json`, JSON.stringify(hero_data))
             }
         }
     },
@@ -16,7 +16,7 @@ const hero_cleaner = {
         heros: "heroes.json",
         abilities: "abilities.json",
         hero_abilities: "hero_abilities.json",
-        aghs:"aghs_desc.json"
+        aghs: "aghs_desc.json"
     }),
 
     clean_hero(id) {
@@ -24,16 +24,19 @@ const hero_cleaner = {
         if (!hero_main_file) return
         const { name } = hero_main_file
         const hero_file = files.read_file(`../heroes_data/${name}.json`)
+        const { max_health, max_mana, turn_rate, armor, damage_max, damage_min, primary_attr
+            , str_base, agi_base, int_base
+        } = hero_file
         const hero_abilities_name = this.all_files.hero_abilities[name]
         const { abilities, talents } = hero_abilities_name
-        const clean_tallents=talents.map(t=>{
-            return {...t,name: this.all_files.abilities[t.name]?.dname}
+        const clean_tallents = talents.map(t => {
+            return { ...t, name: this.all_files.abilities[t.name]?.dname }
         })
-        const hero_aghs=this.all_files.aghs.find(h=>h.hero_name === name)
+        const hero_aghs = this.all_files.aghs.find(h => h.hero_name === name)
         let clean_abilities = abilities.map(e => {
             const att = this.all_files.abilities[e]
             const ability_additional_info = hero_file.abilities.find(a => a.name === e)
-            if(ability_additional_info){
+            if (ability_additional_info) {
                 const {
                     ability_has_scepter,
                     ability_has_shard,
@@ -41,21 +44,26 @@ const hero_cleaner = {
                     ability_is_granted_by_shard,
                 } = ability_additional_info
 
-                return  {...att, ability_has_scepter,
+                return {
+                    ...att, ability_has_scepter,
                     ability_has_shard,
                     ability_is_granted_by_scepter,
-                    ability_is_granted_by_shard}
-               
-            }else{
+                    ability_is_granted_by_shard
+                }
+
+            } else {
                 return null
             }
         })
-        clean_abilities=clean_abilities.filter(e=>e)
-        return{
+        clean_abilities = clean_abilities.filter(e => e)
+        return {
             ...hero_main_file,
-            complexity:hero_file.complexity,
-            talents:clean_tallents,
-            abilities:clean_abilities,
+            max_health, max_mana, turn_rate, armor,
+            damage_max: primary_attr !== 3 ? damage_max : Math.floor(damage_max + ((str_base + agi_base + int_base) * 0.7)),
+            damage_min: primary_attr !== 3 ? damage_min :Math.floor( damage_min + ((str_base + agi_base + int_base) * 0.7)),
+            complexity: hero_file.complexity,
+            talents: clean_tallents,
+            abilities: clean_abilities,
             hero_aghs
         }
     }
