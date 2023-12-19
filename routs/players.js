@@ -38,11 +38,22 @@ router.get("/game_history_list/:account_id", async (req, res) => {
     const player_last_matches = await player_games.get_match_history(account_id)
     const heros_list = files.read_file("../clean_json/hero_basic.json")
     const clean_data = player_last_matches.map(game => {
-        const { players, radiant_win, duration, start_time, match_id, game_mode } = game.result
+        const { players, radiant_win, duration, start_time, match_id, game_mode, radiant_score, dire_score } = game.result
         const player_slot = players.find(player => player.account_id == account_id)
+        const all_hero_ids = players.map(e => {
+            return {
+                hero_id: e.hero_id,
+                team_id: e.team_number
+            }
+        })
         const { kills, deaths, assists, hero_id, team_number } = player_slot
         const chosen_hero = heros_list.find(hero => hero.id == hero_id)
-      
+        const clean_heros_list = all_hero_ids.map(hero => {
+            return {
+                hero_image: heros_list.find(h => h.id === hero.hero_id).image,
+                team_id: hero.team_id
+            }
+        })
         return {
             chosen_hero,
             date: start_time,
@@ -50,10 +61,16 @@ router.get("/game_history_list/:account_id", async (req, res) => {
             match_id,
             duration,
             game_mode: game_modes[game_mode],
-            player_win: team_number && radiant_win,
+            player_win: !team_number && radiant_win ? true : false,
             in_game_status: {
                 kills, deaths, assists
-            }
+            },
+            hero_images: {
+                radiant: clean_heros_list.filter(e => !e.team_id).map(e => e.hero_image),
+                dire: clean_heros_list.filter(e => e.team_id).map(e => e.hero_image),
+            },
+            radiant_score,
+            dire_score
 
         }
     })
