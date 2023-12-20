@@ -61,7 +61,7 @@ router.get("/game_history_list/:account_id", async (req, res) => {
             match_id,
             duration,
             game_mode: game_modes[game_mode],
-            player_win: !team_number && radiant_win ? true : false,
+            player_win: (team_number === 0 && radiant_win ) || (team_number === 1 && !radiant_win )? true : false,
             in_game_status: {
                 kills, deaths, assists
             },
