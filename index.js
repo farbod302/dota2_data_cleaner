@@ -19,3 +19,39 @@ app.listen(3434)
 
 
 
+
+
+// const clean_item_images = () => {
+//     const items = files.read_file("abilities_image.json")
+//     const keys = Object.keys(items)
+//     const clean_images = keys.map(k => {
+//         const { id, shortName,displayName } = items[k]
+//         return {
+//             id,
+//             img:"https://cdn.stratz.com/images/dota2/items/"+shortName+".png",
+//             name:displayName
+//         }
+//     })
+//     fs.writeFileSync(`${__dirname}/clean_json/items_image.json`,JSON.stringify(clean_images))
+// }
+
+// clean_item_images()
+
+
+
+
+// const clean_item_images = () => {
+//     const items = files.read_file("abilities_image.json")
+//     const keys = Object.keys(items)
+//     const clean_images = keys.map(k => {
+//         const { id, name } = items[k]
+//         return {
+//             id,
+//             img:`https://cdn.stratz.com/images/dota2/abilities/${name}.png`,
+//             name
+//         }
+//     })
+//     fs.writeFileSync(`${__dirname}/clean_json/abilities_image.json`,JSON.stringify(clean_images))
+// }
+
+// clean_item_images()

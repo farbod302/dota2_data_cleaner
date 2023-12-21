@@ -61,7 +61,8 @@ router.get("/game_history_list/:account_id", async (req, res) => {
             match_id,
             duration,
             game_mode: game_modes[game_mode],
-            player_win: (team_number === 0 && radiant_win ) || (team_number === 1 && !radiant_win )? true : false,
+            player_win: (team_number === 0 && radiant_win) || (team_number === 1 && !
+                radiant_win) ? true : false,
             in_game_status: {
                 kills, deaths, assists
             },
@@ -79,6 +80,95 @@ router.get("/game_history_list/:account_id", async (req, res) => {
         msg: "",
         data: {
             match_history: clean_data
+        }
+    })
+})
+
+
+router.get("/match_detail/:match_id", async (req, res) => {
+
+    const items = files.read_file("../clean_json/items_image.json")
+    const heros = files.read_file("../clean_json/hero_basic.json")
+    const abilities = files.read_file("../clean_json/abilities_image.json")
+
+    const { match_id } = req.params
+    const selected_match = await files.from_gzip(match_id)
+    const { players, radiant_win, duration, pre_game_duration, start_time, game_mode, radiant_score, dire_score } = selected_match.result
+    const clean_players = players.map(player => {
+        const {
+            hero_id,
+            item_0,
+            item_1,
+            item_2,
+            item_3,
+            item_4,
+            item_5,
+            item_6,
+            backpack_0,
+            backpack_1,
+            backpack_2,
+            item_neutral,
+            gold_per_min,
+            xp_per_min,
+            level,
+            net_worth,
+            aghanims_scepter,
+            aghanims_shard,
+            moonshard
+        } = player
+        let items_image = [
+            item_0,
+            item_1,
+            item_2,
+            item_3,
+            item_4,
+            item_5,
+            item_6,
+            backpack_0,
+            backpack_1,
+            backpack_2,
+            item_neutral
+        ]
+        items_image = items_image.map(e => {
+            const s_item = items.find(i => i.id == e)
+            return s_item?.img || "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/BLANK_ICON.png/120px-BLANK_ICON.png"
+        })
+        const hero = heros.find(e => e.id === hero_id).image
+        let additional_info = null
+        if (player.hero_damage) {
+            const { hero_damage, tower_damage, hero_healing, gold, gold_spent, ability_upgrades } = player
+            const clean_ab = ability_upgrades.map(e => {
+                const image = abilities.find(i => e.ability === i.id).img
+                return {
+                    ...e,
+                    image
+                }
+            })
+            additional_info = {
+                hero_damage, tower_damage, hero_healing, gold, gold_spent,
+                ability_upgrades: clean_ab
+            }
+        }
+        return {
+            items: items_image,
+            hero, gold_per_min,
+            xp_per_min,
+            level,
+            net_worth,
+            aghanims_scepter,
+            aghanims_shard,
+            moonshard,
+            additional_info
+        }
+    })
+    const winner = radiant_win ? "Radiant" : "Dire"
+    res.json({
+        status:true,
+        msg:"",
+        data:{
+            duration, pre_game_duration, start_time, game_mode, radiant_score, dire_score,
+            players:clean_players,
+            winner
         }
     })
 })
