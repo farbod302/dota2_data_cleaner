@@ -93,7 +93,8 @@ router.get("/match_detail/:match_id", async (req, res) => {
 
     const { match_id } = req.params
     const selected_match = await files.from_gzip(match_id)
-    const { players, radiant_win, duration, pre_game_duration, start_time, game_mode, radiant_score, dire_score } = selected_match.result
+    const { players, radiant_win, duration, pre_game_duration, start_time, game_mode, radiant_score, dire_score, picks_bans
+    } = selected_match.result
     const clean_players = players.map(player => {
         const {
             hero_id,
@@ -103,7 +104,6 @@ router.get("/match_detail/:match_id", async (req, res) => {
             item_3,
             item_4,
             item_5,
-            item_6,
             backpack_0,
             backpack_1,
             backpack_2,
@@ -114,7 +114,7 @@ router.get("/match_detail/:match_id", async (req, res) => {
             net_worth,
             aghanims_scepter,
             aghanims_shard,
-            moonshard
+            moonshard,
         } = player
         let items_image = [
             item_0,
@@ -123,7 +123,6 @@ router.get("/match_detail/:match_id", async (req, res) => {
             item_3,
             item_4,
             item_5,
-            item_6,
             backpack_0,
             backpack_1,
             backpack_2,
@@ -149,6 +148,9 @@ router.get("/match_detail/:match_id", async (req, res) => {
                 ability_upgrades: clean_ab
             }
         }
+
+
+
         return {
             items: items_image,
             hero, gold_per_min,
@@ -158,17 +160,26 @@ router.get("/match_detail/:match_id", async (req, res) => {
             aghanims_scepter,
             aghanims_shard,
             moonshard,
-            additional_info
+            additional_info,
+        }
+    })
+    const clean_pick_ban = picks_bans.map(p => {
+        const { hero_id } = p
+        const s_hero = heros.find(e => e.id === hero_id)
+        return {
+            ...p,
+            hero_image: s_hero.image
         }
     })
     const winner = radiant_win ? "Radiant" : "Dire"
     res.json({
-        status:true,
-        msg:"",
-        data:{
+        status: true,
+        msg: "",
+        data: {
             duration, pre_game_duration, start_time, game_mode, radiant_score, dire_score,
-            players:clean_players,
-            winner
+            players: clean_players,
+            winner,
+            picks_bans: clean_pick_ban
         }
     })
 })
