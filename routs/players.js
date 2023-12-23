@@ -115,6 +115,11 @@ router.get("/match_detail/:match_id", async (req, res) => {
             aghanims_scepter,
             aghanims_shard,
             moonshard,
+            kills,
+            deaths,
+            assists,
+            last_hits,
+            denies
         } = player
         let items_image = [
             item_0,
@@ -161,6 +166,11 @@ router.get("/match_detail/:match_id", async (req, res) => {
             aghanims_shard,
             moonshard,
             additional_info,
+            kills,
+            deaths,
+            assists,
+            last_hits,
+            denies
         }
     })
     const clean_pick_ban = picks_bans.map(p => {
