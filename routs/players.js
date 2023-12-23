@@ -130,7 +130,7 @@ router.get("/match_detail/:match_id", async (req, res) => {
         ]
         items_image = items_image.map(e => {
             const s_item = items.find(i => i.id == e)
-            return s_item?.img || "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/BLANK_ICON.png/120px-BLANK_ICON.png"
+            return s_item?.img || null
         })
         const hero = heros.find(e => e.id === hero_id).image
         let additional_info = null
