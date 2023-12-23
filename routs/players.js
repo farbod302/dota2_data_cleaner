@@ -142,10 +142,12 @@ router.get("/match_detail/:match_id", async (req, res) => {
         if (player.hero_damage) {
             const { hero_damage, tower_damage, hero_healing, gold, gold_spent, ability_upgrades } = player
             const clean_ab = ability_upgrades.map(e => {
-                const image = abilities.find(i => e.ability === i.id).img
+                const selected_ab = abilities.find(i => e.ability === i.id)
                 return {
                     ...e,
-                    image
+                    image:selected_ab.img,
+                    is_talent:selected_ab.isTalent,
+                    display_name:selected_ab.displayName
                 }
             })
             additional_info = {

@@ -43,20 +43,22 @@ app.listen(3434)
 
 
 
-// const clean_item_images = () => {
-//     const items = files.read_file("abilities_image.json")
-//     const keys = Object.keys(items)
-//     const clean_images = keys.map(k => {
-//         const { id, name } = items[k]
-//         return {
-//             id,
-//             img:`https://cdn.stratz.com/images/dota2/abilities/${name}.png`,
-//             name
-//         }
-//     })
-//     fs.writeFileSync(`${__dirname}/clean_json/abilities_image.json`,JSON.stringify(clean_images))
-// }
+const clean_item_images = () => {
+    const items = files.read_file("abilities_image.json")
+    const keys = Object.keys(items)
+    const clean_images = keys.map(k => {
+        const { id, name ,isTalent,language} = items[k]
+        const {displayName}=language
+        return {
+            id,
+            img:`https://cdn.stratz.com/images/dota2/abilities/${name}.png`,
+            name,
+            isTalent,
+            displayName
+        }
+    })
+    fs.writeFileSync(`${__dirname}/clean_json/abilities_image.json`,JSON.stringify(clean_images))
+}
 
-// clean_item_images()
+clean_item_images()
 
-pick_ban.check_rate([2,120,15])
