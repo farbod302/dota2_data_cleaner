@@ -6,9 +6,12 @@ const cors = require("cors")
 const fs = require("fs")
 const files = require("./helpers/files")
 const hero_cleaner = require("./funcs/heros/hero_cleaner")
+const scrap = require("./pick-ban/scrap")
+const pick_ban = require("./pick-ban")
 const keys = Object.keys(routs)
-
+const bodyParser=require("body-parser")
 app.use(cors())
+app.use(bodyParser.json())
 
 keys.forEach(key => {
     app.use("/" + key, routs[key])
@@ -55,3 +58,5 @@ app.listen(3434)
 // }
 
 // clean_item_images()
+
+pick_ban.check_rate([2,120,15])
