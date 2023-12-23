@@ -137,7 +137,7 @@ router.get("/match_detail/:match_id", async (req, res) => {
             const s_item = items.find(i => i.id == e)
             return s_item?.img || null
         })
-        const hero = heros.find(e => e.id === hero_id).image
+        const hero = heros.find(e => e.id === hero_id)
         let additional_info = null
         if (player.hero_damage) {
             const { hero_damage, tower_damage, hero_healing, gold, gold_spent, ability_upgrades } = player
@@ -145,22 +145,31 @@ router.get("/match_detail/:match_id", async (req, res) => {
                 const selected_ab = abilities.find(i => e.ability === i.id)
                 return {
                     ...e,
-                    image:selected_ab.img,
-                    is_talent:selected_ab.isTalent,
-                    display_name:selected_ab.displayName
+                    image: selected_ab.img,
+                    is_talent: selected_ab.isTalent,
+                    display_name: selected_ab.displayName
                 }
             })
+           
+            const selected_hero=files.read_file(`../clean_heros_json/${hero_id}.json`)
+            const talent_tree = selected_hero.talents
+            const clean_tree = talent_tree.map(t => {
+                const is_picked = clean_ab.find(e => e.display_name === t.name)
+                return {
+                    ...t,
+                    is_picked: is_picked ? true : false
+                }
+            })
+
             additional_info = {
                 hero_damage, tower_damage, hero_healing, gold, gold_spent,
-                ability_upgrades: clean_ab
+                ability_upgrades: clean_ab,talent_tree:clean_tree
             }
         }
 
-
-
         return {
             items: items_image,
-            hero, gold_per_min,
+            hero: hero.image, gold_per_min,
             xp_per_min,
             level,
             net_worth,

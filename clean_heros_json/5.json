@@ -1,1 +1,415 @@
-{"id":5,"name":"npc_dota_hero_crystal_maiden","localized_name":"Crystal Maiden","primary_attr":"int","attack_type":"Ranged","roles":["Support","Disabler","Nuker"],"img":"/apps/dota2/images/dota_react/heroes/crystal_maiden.png?","icon":"/apps/dota2/images/dota_react/heroes/icons/crystal_maiden.png?","base_health":120,"base_health_regen":0.25,"base_mana":75,"base_mana_regen":0.5,"base_armor":-1,"base_mr":25,"base_attack_min":30,"base_attack_max":36,"base_str":17,"base_agi":16,"base_int":16,"str_gain":2.2,"agi_gain":1.6,"int_gain":3.3,"attack_range":600,"projectile_speed":900,"attack_rate":1.7,"base_attack_time":100,"attack_point":0.45,"move_speed":280,"turn_rate":0.6,"cm_enabled":true,"legs":2,"day_vision":1800,"night_vision":800,"max_health":494,"max_mana":291,"armor":2.6666667,"damage_max":54,"damage_min":48,"complexity":1,"talents":[{"name":"+250 Health","level":1},{"name":"+125 Crystal Nova AoE","level":1},{"name":"+125 Frostbite Cast Range","level":2},{"name":"-3s Crystal Nova Cooldown","level":2},{"name":"+225 Attack Speed","level":3},{"name":"+50 Freezing Field Damage","level":3},{"name":"+1.25s Frostbite Duration","level":4},{"name":"+240 Crystal Nova Damage","level":4}],"abilities":[{"dname":"Crystal Nova","behavior":"Point Target / AOE","dmg_type":"Magical","bkbpierce":"No","dispellable":"Yes","desc":"A burst of damaging frost slows enemy movement and attack rate in the targeted area.","attrib":[{"key":"abilitycastrange","header":"CAST RANGE:","value":"700","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true},{"key":"radius","header":"RADIUS:","value":"425"},{"key":"movespeed_slow","header":"MOVEMENT SLOW:","value":"-20% / -30% / -40% / -50%"},{"key":"attackspeed_slow","header":"ATTACK SLOW:","value":"-30 / -45 / -60 / -75"},{"key":"duration","header":"DURATION:","value":"5"},{"key":"vision_duration","header":"VISION DURATION:","value":"6","generated":true},{"key":"nova_damage","header":"DAMAGE:","value":"110 / 160 / 210 / 260"}],"lore":"The air temperature around Rylai drops rapidly, chilling all around her to the core.","mc":"115 / 135 / 155 / 175","cd":"11 / 10 / 9 / 8","img":"/apps/dota2/images/dota_react/abilities/crystal_maiden_crystal_nova.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Frostbite","behavior":"Unit Target","dmg_type":"Magical","bkbpierce":"No","dispellable":"Yes","target_team":"Enemy","target_type":"Hero / Basic","desc":"Encases an enemy unit in ice, prohibiting movement and attack, while dealing damage over time. Lasts 10 seconds on creeps level 6 or lower.","attrib":[{"key":"abilitycastrange","header":"CAST RANGE:","value":"600"},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true},{"key":"damage_per_second","header":"DAMAGE PER SECOND:","value":"100"},{"key":"creep_damage_per_second","header":"CREEP DAMAGE PER SECOND:","value":"100","generated":true},{"key":"duration","header":"HERO DURATION:","value":"1.5 / 2 / 2.5 / 3"},{"key":"creep_duration","header":"CREEP DURATION:","value":"10"},{"key":"tick_interval","header":"TICK INTERVAL:","value":"0.20","generated":true}],"lore":"Rylai channels winds from the Blueheart Glacier, imprisoning attackers in thick blocks of ice.","mc":"125 / 135 / 145 / 155","cd":"9 / 8 / 7 / 6","img":"/apps/dota2/images/dota_react/abilities/crystal_maiden_frostbite.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Arcane Aura","behavior":"Passive","bkbpierce":"Yes","target_team":"Friendly","desc":"Gives additional mana regeneration to all friendly units on the map. Allies within a 1200 radius of Crystal Maiden receive 3x the mana regeneration. Crystal Maiden herself receives 6x the bonus.","attrib":[{"key":"base_mana_regen","header":"MANA REGEN:","value":"0.4 / 0.6 / 0.8 / 1"},{"key":"proximity_mana_regen_tooltip","header":"CLOSE MANA REGEN:","value":"1.2 / 1.8 / 2.4 / 3"},{"key":"self_mana_regen_tooltip","header":"SELF MANA REGEN:","value":"2.4 / 3.6 / 4.8 / 6"},{"key":"self_factor","header":"SELF FACTOR:","value":"6","generated":true},{"key":"proximity_bonus_factor","header":"PROXIMITY BONUS FACTOR:","value":"3","generated":true},{"key":"proximity_bonus_radius","header":"PROXIMITY BONUS RADIUS:","value":"1200","generated":true}],"lore":"Cold temperatures promote the essence of magic, causing Rylai's presence to allow spell usage in abundance.","img":"/apps/dota2/images/dota_react/abilities/crystal_maiden_brilliance_aura.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Crystal Clone","behavior":"No Target / Hidden","bkbpierce":"No","desc":"Slides backward, creating a crystal clone of herself in her place. If the clone takes enough damage or times out, it shatters, Frostbiting enemies in a 300 AoE around its place.","attrib":[{"key":"hop_distance","header":"DISTANCE:","value":"275"},{"key":"hop_duration","header":"HOP DURATION:","value":"0.3","generated":true},{"key":"clone_duration","header":"CLONE DURATION:","value":"5"},{"key":"frostbite_radius","header":"FROSTBITE RADIUS:","value":"300","generated":true},{"key":"anim_delay","header":"ANIM DELAY:","value":"0.02","generated":true},{"key":"clone_health","header":"CLONE HEALTH:","value":"150"}],"mc":"50","cd":"12","img":"/apps/dota2/images/dota_react/abilities/crystal_maiden_crystal_clone.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":true},{"dname":"Freezing Field","behavior":"No Target / Channeled","dmg_type":"Magical","bkbpierce":"No","desc":"CHANNELED - Surrounds Crystal Maiden with 100 random icy explosions that slow enemies and deal massive damage. Grants bonus armor while channeling. Lasts 10 seconds.","attrib":[{"key":"abilitychanneltime","header":"CHANNEL TIME:","value":"10","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0","generated":true},{"key":"abilityduration","header":"DURATION:","value":"10","generated":true},{"key":"radius","header":"RADIUS:","value":"810"},{"key":"explosion_radius","header":"EXPLOSION RADIUS:","value":"320"},{"key":"bonus_armor","header":"BONUS ARMOR:","value":"20"},{"key":"explosion_interval","header":"EXPLOSION INTERVAL:","value":"0.1","generated":true},{"key":"movespeed_slow","header":"MOVEMENT SLOW:","value":"-40%"},{"key":"attack_slow","header":"ATTACK SLOW:","value":"-60"},{"key":"slow_duration","header":"SLOW DURATION:","value":"1","generated":true},{"key":"explosion_min_dist","header":"EXPLOSION MIN DIST:","value":"195","generated":true},{"key":"explosion_max_dist","header":"EXPLOSION MAX DIST:","value":"785","generated":true},{"key":"damage","header":"DAMAGE:","value":"105 / 170 / 250"},{"key":"frostbite_delay","header":"FROSTBITE DELAY:","value":"-1","generated":true},{"key":"shard_self_movement_speed_slow_pct","header":"SHARD SELF MOVEMENT SPEED SLOW PCT:","value":"0","generated":true},{"key":"can_move","header":"CAN MOVE:","value":"0","generated":true}],"lore":"Once the place of her exile, Icewrack has become an anchor for Rylai's frigid onslaught.","mc":"200 / 400 / 600","cd":"100 / 95 / 90","img":"/apps/dota2/images/dota_react/abilities/crystal_maiden_freezing_field.png","ability_has_scepter":true,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false}],"hero_aghs":{"hero_name":"npc_dota_hero_crystal_maiden","hero_id":5,"has_scepter":true,"scepter_desc":"Allows you to move, cast and attack during Freezing Field. Can still be interrupted by enemies. You move 75% slower during this. Increases total number of explosions by 20%. Applies Frostbite to any unit that has been standing in the Freezing Field for over 2.5s.","scepter_skill_name":"Freezing Field","scepter_new_skill":false,"has_shard":true,"shard_desc":"Slides backward, creating a crystal clone of herself in her place. If the clone takes enough damage or times out, it shatters, Frostbiting enemies in a 300 AoE around its place.","shard_skill_name":"Crystal Clone","shard_new_skill":true}}
+{
+    "id": 5,
+    "name": "npc_dota_hero_crystal_maiden",
+    "localized_name": "Crystal Maiden",
+    "primary_attr": "int",
+    "attack_type": "Ranged",
+    "roles": [
+        "Support",
+        "Disabler",
+        "Nuker"
+    ],
+    "img": "/apps/dota2/images/dota_react/heroes/crystal_maiden.png?",
+    "icon": "/apps/dota2/images/dota_react/heroes/icons/crystal_maiden.png?",
+    "base_health": 120,
+    "base_health_regen": 0.25,
+    "base_mana": 75,
+    "base_mana_regen": 0.5,
+    "base_armor": -1,
+    "base_mr": 25,
+    "base_attack_min": 30,
+    "base_attack_max": 36,
+    "base_str": 17,
+    "base_agi": 16,
+    "base_int": 16,
+    "str_gain": 2.2,
+    "agi_gain": 1.6,
+    "int_gain": 3.3,
+    "attack_range": 600,
+    "projectile_speed": 900,
+    "attack_rate": 1.7,
+    "base_attack_time": 100,
+    "attack_point": 0.45,
+    "move_speed": 280,
+    "turn_rate": 0.6,
+    "cm_enabled": true,
+    "legs": 2,
+    "day_vision": 1800,
+    "night_vision": 800,
+    "max_health": 494,
+    "max_mana": 291,
+    "armor": 2.6666667,
+    "damage_max": 54,
+    "damage_min": 48,
+    "complexity": 1,
+    "talents": [
+        {
+            "name": "+250 Health",
+            "level": 1
+        },
+        {
+            "name": "+125 Crystal Nova AoE",
+            "level": 1
+        },
+        {
+            "name": "+125 Frostbite Cast Range",
+            "level": 2
+        },
+        {
+            "name": "-3s Crystal Nova Cooldown",
+            "level": 2
+        },
+        {
+            "name": "+225 Attack Speed",
+            "level": 3
+        },
+        {
+            "name": "+50 Freezing Field Damage",
+            "level": 3
+        },
+        {
+            "name": "+1.25s Frostbite Duration",
+            "level": 4
+        },
+        {
+            "name": "+240 Crystal Nova Damage",
+            "level": 4
+        }
+    ],
+    "abilities": [
+        {
+            "dname": "Crystal Nova",
+            "behavior": "Point Target / AOE",
+            "dmg_type": "Magical",
+            "bkbpierce": "No",
+            "dispellable": "Yes",
+            "desc": "A burst of damaging frost slows enemy movement and attack rate in the targeted area.",
+            "attrib": [
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "700",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                },
+                {
+                    "key": "radius",
+                    "header": "RADIUS:",
+                    "value": "425"
+                },
+                {
+                    "key": "movespeed_slow",
+                    "header": "MOVEMENT SLOW:",
+                    "value": "-20% / -30% / -40% / -50%"
+                },
+                {
+                    "key": "attackspeed_slow",
+                    "header": "ATTACK SLOW:",
+                    "value": "-30 / -45 / -60 / -75"
+                },
+                {
+                    "key": "duration",
+                    "header": "DURATION:",
+                    "value": "5"
+                },
+                {
+                    "key": "vision_duration",
+                    "header": "VISION DURATION:",
+                    "value": "6",
+                    "generated": true
+                },
+                {
+                    "key": "nova_damage",
+                    "header": "DAMAGE:",
+                    "value": "110 / 160 / 210 / 260"
+                }
+            ],
+            "lore": "The air temperature around Rylai drops rapidly, chilling all around her to the core.",
+            "mc": "115 / 135 / 155 / 175",
+            "cd": "11 / 10 / 9 / 8",
+            "img": "/apps/dota2/images/dota_react/abilities/crystal_maiden_crystal_nova.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Frostbite",
+            "behavior": "Unit Target",
+            "dmg_type": "Magical",
+            "bkbpierce": "No",
+            "dispellable": "Yes",
+            "target_team": "Enemy",
+            "target_type": "Hero / Basic",
+            "desc": "Encases an enemy unit in ice, prohibiting movement and attack, while dealing damage over time. Lasts 10 seconds on creeps level 6 or lower.",
+            "attrib": [
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "600"
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                },
+                {
+                    "key": "damage_per_second",
+                    "header": "DAMAGE PER SECOND:",
+                    "value": "100"
+                },
+                {
+                    "key": "creep_damage_per_second",
+                    "header": "CREEP DAMAGE PER SECOND:",
+                    "value": "100",
+                    "generated": true
+                },
+                {
+                    "key": "duration",
+                    "header": "HERO DURATION:",
+                    "value": "1.5 / 2 / 2.5 / 3"
+                },
+                {
+                    "key": "creep_duration",
+                    "header": "CREEP DURATION:",
+                    "value": "10"
+                },
+                {
+                    "key": "tick_interval",
+                    "header": "TICK INTERVAL:",
+                    "value": "0.20",
+                    "generated": true
+                }
+            ],
+            "lore": "Rylai channels winds from the Blueheart Glacier, imprisoning attackers in thick blocks of ice.",
+            "mc": "125 / 135 / 145 / 155",
+            "cd": "9 / 8 / 7 / 6",
+            "img": "/apps/dota2/images/dota_react/abilities/crystal_maiden_frostbite.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Arcane Aura",
+            "behavior": "Passive",
+            "bkbpierce": "Yes",
+            "target_team": "Friendly",
+            "desc": "Gives additional mana regeneration to all friendly units on the map. Allies within a 1200 radius of Crystal Maiden receive 3x the mana regeneration. Crystal Maiden herself receives 6x the bonus.",
+            "attrib": [
+                {
+                    "key": "base_mana_regen",
+                    "header": "MANA REGEN:",
+                    "value": "0.4 / 0.6 / 0.8 / 1"
+                },
+                {
+                    "key": "proximity_mana_regen_tooltip",
+                    "header": "CLOSE MANA REGEN:",
+                    "value": "1.2 / 1.8 / 2.4 / 3"
+                },
+                {
+                    "key": "self_mana_regen_tooltip",
+                    "header": "SELF MANA REGEN:",
+                    "value": "2.4 / 3.6 / 4.8 / 6"
+                },
+                {
+                    "key": "self_factor",
+                    "header": "SELF FACTOR:",
+                    "value": "6",
+                    "generated": true
+                },
+                {
+                    "key": "proximity_bonus_factor",
+                    "header": "PROXIMITY BONUS FACTOR:",
+                    "value": "3",
+                    "generated": true
+                },
+                {
+                    "key": "proximity_bonus_radius",
+                    "header": "PROXIMITY BONUS RADIUS:",
+                    "value": "1200",
+                    "generated": true
+                }
+            ],
+            "lore": "Cold temperatures promote the essence of magic, causing Rylai's presence to allow spell usage in abundance.",
+            "img": "/apps/dota2/images/dota_react/abilities/crystal_maiden_brilliance_aura.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Crystal Clone",
+            "behavior": "No Target / Hidden",
+            "bkbpierce": "No",
+            "desc": "Slides backward, creating a crystal clone of herself in her place. If the clone takes enough damage or times out, it shatters, Frostbiting enemies in a 300 AoE around its place.",
+            "attrib": [
+                {
+                    "key": "hop_distance",
+                    "header": "DISTANCE:",
+                    "value": "275"
+                },
+                {
+                    "key": "hop_duration",
+                    "header": "HOP DURATION:",
+                    "value": "0.3",
+                    "generated": true
+                },
+                {
+                    "key": "clone_duration",
+                    "header": "CLONE DURATION:",
+                    "value": "5"
+                },
+                {
+                    "key": "frostbite_radius",
+                    "header": "FROSTBITE RADIUS:",
+                    "value": "300",
+                    "generated": true
+                },
+                {
+                    "key": "anim_delay",
+                    "header": "ANIM DELAY:",
+                    "value": "0.02",
+                    "generated": true
+                },
+                {
+                    "key": "clone_health",
+                    "header": "CLONE HEALTH:",
+                    "value": "150"
+                }
+            ],
+            "mc": "50",
+            "cd": "12",
+            "img": "/apps/dota2/images/dota_react/abilities/crystal_maiden_crystal_clone.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": true
+        },
+        {
+            "dname": "Freezing Field",
+            "behavior": "No Target / Channeled",
+            "dmg_type": "Magical",
+            "bkbpierce": "No",
+            "desc": "CHANNELED - Surrounds Crystal Maiden with 100 random icy explosions that slow enemies and deal massive damage. Grants bonus armor while channeling. Lasts 10 seconds.",
+            "attrib": [
+                {
+                    "key": "abilitychanneltime",
+                    "header": "CHANNEL TIME:",
+                    "value": "10",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "abilityduration",
+                    "header": "DURATION:",
+                    "value": "10",
+                    "generated": true
+                },
+                {
+                    "key": "radius",
+                    "header": "RADIUS:",
+                    "value": "810"
+                },
+                {
+                    "key": "explosion_radius",
+                    "header": "EXPLOSION RADIUS:",
+                    "value": "320"
+                },
+                {
+                    "key": "bonus_armor",
+                    "header": "BONUS ARMOR:",
+                    "value": "20"
+                },
+                {
+                    "key": "explosion_interval",
+                    "header": "EXPLOSION INTERVAL:",
+                    "value": "0.1",
+                    "generated": true
+                },
+                {
+                    "key": "movespeed_slow",
+                    "header": "MOVEMENT SLOW:",
+                    "value": "-40%"
+                },
+                {
+                    "key": "attack_slow",
+                    "header": "ATTACK SLOW:",
+                    "value": "-60"
+                },
+                {
+                    "key": "slow_duration",
+                    "header": "SLOW DURATION:",
+                    "value": "1",
+                    "generated": true
+                },
+                {
+                    "key": "explosion_min_dist",
+                    "header": "EXPLOSION MIN DIST:",
+                    "value": "195",
+                    "generated": true
+                },
+                {
+                    "key": "explosion_max_dist",
+                    "header": "EXPLOSION MAX DIST:",
+                    "value": "785",
+                    "generated": true
+                },
+                {
+                    "key": "damage",
+                    "header": "DAMAGE:",
+                    "value": "105 / 170 / 250"
+                },
+                {
+                    "key": "frostbite_delay",
+                    "header": "FROSTBITE DELAY:",
+                    "value": "-1",
+                    "generated": true
+                },
+                {
+                    "key": "shard_self_movement_speed_slow_pct",
+                    "header": "SHARD SELF MOVEMENT SPEED SLOW PCT:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "can_move",
+                    "header": "CAN MOVE:",
+                    "value": "0",
+                    "generated": true
+                }
+            ],
+            "lore": "Once the place of her exile, Icewrack has become an anchor for Rylai's frigid onslaught.",
+            "mc": "200 / 400 / 600",
+            "cd": "100 / 95 / 90",
+            "img": "/apps/dota2/images/dota_react/abilities/crystal_maiden_freezing_field.png",
+            "ability_has_scepter": true,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        }
+    ],
+    "hero_aghs": {
+        "hero_name": "npc_dota_hero_crystal_maiden",
+        "hero_id": 5,
+        "has_scepter": true,
+        "scepter_desc": "Allows you to move, cast and attack during Freezing Field. Can still be interrupted by enemies. You move 75% slower during this. Increases total number of explosions by 20%. Applies Frostbite to any unit that has been standing in the Freezing Field for over 2.5s.",
+        "scepter_skill_name": "Freezing Field",
+        "scepter_new_skill": false,
+        "has_shard": true,
+        "shard_desc": "Slides backward, creating a crystal clone of herself in her place. If the clone takes enough damage or times out, it shatters, Frostbiting enemies in a 300 AoE around its place.",
+        "shard_skill_name": "Crystal Clone",
+        "shard_new_skill": true
+    }
+}
