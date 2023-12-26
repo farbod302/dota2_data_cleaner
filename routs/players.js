@@ -33,55 +33,72 @@ const game_modes = [
 ]
 
 
-router.get("/game_history_list/:account_id", async (req, res) => {
-    const { account_id } = req.params
-    const player_last_matches = await player_games.get_match_history(account_id)
-    const heros_list = files.read_file("../clean_json/hero_basic.json")
-    const clean_data = player_last_matches.map(game => {
-        const { players, radiant_win, duration, start_time, match_id, game_mode, radiant_score, dire_score } = game.result
-        const player_slot = players.find(player => player.account_id == account_id)
-        const all_hero_ids = players.map(e => {
+router.get("/game_history_list", async (req, res) => {
+    try {
+        const account_id = req.body?.user?.dota_id
+        if (!account_id) {
+            res.json({
+                status: false,
+                msg: "شناسه کاربری نا معتبر",
+                data: {}
+            })
+            return
+        }
+        const player_last_matches = await player_games.get_match_history(account_id)
+        const heros_list = files.read_file("../clean_json/hero_basic.json")
+        const clean_data = player_last_matches.map(game => {
+            const { players, radiant_win, duration, start_time, match_id, game_mode, radiant_score, dire_score } = game.result
+            const player_slot = players.find(player => player.account_id == account_id)
+            const all_hero_ids = players.map(e => {
+                return {
+                    hero_id: e.hero_id,
+                    team_id: e.team_number
+                }
+            })
+            const { kills, deaths, assists, hero_id, team_number } = player_slot
+            const chosen_hero = heros_list.find(hero => hero.id == hero_id)
+            const clean_heros_list = all_hero_ids.map(hero => {
+                return {
+                    hero_image: heros_list.find(h => h.id === hero.hero_id).image,
+                    team_id: hero.team_id
+                }
+            })
             return {
-                hero_id: e.hero_id,
-                team_id: e.team_number
-            }
-        })
-        const { kills, deaths, assists, hero_id, team_number } = player_slot
-        const chosen_hero = heros_list.find(hero => hero.id == hero_id)
-        const clean_heros_list = all_hero_ids.map(hero => {
-            return {
-                hero_image: heros_list.find(h => h.id === hero.hero_id).image,
-                team_id: hero.team_id
-            }
-        })
-        return {
-            chosen_hero,
-            date: start_time,
-            winner_team: radiant_win ? "radiant" : "dire",
-            match_id,
-            duration,
-            game_mode: game_modes[game_mode],
-            player_win: (team_number === 0 && radiant_win) || (team_number === 1 && !
-                radiant_win) ? true : false,
-            in_game_status: {
-                kills, deaths, assists
-            },
-            hero_images: {
-                radiant: clean_heros_list.filter(e => !e.team_id).map(e => e.hero_image),
-                dire: clean_heros_list.filter(e => e.team_id).map(e => e.hero_image),
-            },
-            radiant_score,
-            dire_score
+                chosen_hero,
+                date: start_time,
+                winner_team: radiant_win ? "radiant" : "dire",
+                match_id,
+                duration,
+                game_mode: game_modes[game_mode],
+                player_win: (team_number === 0 && radiant_win) || (team_number === 1 && !
+                    radiant_win) ? true : false,
+                in_game_status: {
+                    kills, deaths, assists
+                },
+                hero_images: {
+                    radiant: clean_heros_list.filter(e => !e.team_id).map(e => e.hero_image),
+                    dire: clean_heros_list.filter(e => e.team_id).map(e => e.hero_image),
+                },
+                radiant_score,
+                dire_score
 
-        }
-    })
-    res.json({
-        status: true,
-        msg: "",
-        data: {
-            match_history: clean_data
-        }
-    })
+            }
+        })
+        res.json({
+            status: true,
+            msg: "",
+            data: {
+                match_history: clean_data
+            }
+        })
+    }
+    catch (err) {
+        res.json({
+            status: false,
+            msg: "شناسه dota نامعتبر",
+            data: {}
+        })
+    }
 })
 
 
@@ -150,8 +167,8 @@ router.get("/match_detail/:match_id", async (req, res) => {
                     display_name: selected_ab.displayName
                 }
             })
-           
-            const selected_hero=files.read_file(`../clean_heros_json/${hero_id}.json`)
+
+            const selected_hero = files.read_file(`../clean_heros_json/${hero_id}.json`)
             const talent_tree = selected_hero.talents
             const clean_tree = talent_tree.map(t => {
                 const is_picked = clean_ab.find(e => e.display_name === t.name)
@@ -163,7 +180,7 @@ router.get("/match_detail/:match_id", async (req, res) => {
 
             additional_info = {
                 hero_damage, tower_damage, hero_healing, gold, gold_spent,
-                ability_upgrades: clean_ab,talent_tree:clean_tree
+                ability_upgrades: clean_ab, talent_tree: clean_tree
             }
         }
 
