@@ -14,7 +14,8 @@ router.post("/", async (req, res) => {
         status: true,
         msg: "کد تایید ارسال شد",
         data: {
-            is_user_signup: is_user_signup ? true : false
+            is_user_signup: is_user_signup ? true : false,
+            token: null
         }
     })
 })
@@ -47,7 +48,7 @@ router.post("/log_in", async (req, res) => {
 
 
 router.post("/sign_up", (req, res) => {
-    const { name, phone, code, dota_id, steam_id } = req.body
+    const { name, phone, code, dota_id } = req.body
     const is_valid_code = sms_handler.check_sms(phone, code)
     if (!is_valid_code) {
         res.json({
@@ -62,7 +63,7 @@ router.post("/sign_up", (req, res) => {
         phone,
         name,
         dota_id,
-        steam_id: steam_id || 0,
+        steam_id: 0,
         user_id,
         vip_until: 0
     }
