@@ -16,7 +16,7 @@ const player_games = {
             match_ids = match_ids.concat(matches_id)
             last_match = match_ids.at(-1)
         }
-        let now=Date.now()
+        let now = Date.now()
         const match_details = await this.get_matches_detail(match_ids)
         console.log(`Fetch ${match_details.length} game successfully in ${Date.now() - now} ms`);
         return match_details
@@ -25,20 +25,21 @@ const player_games = {
     async get_matches_detail(match_ids) {
         const exist_games = fs.readdirSync(`${__dirname}/../../matches`)
 
-        const promises = match_ids.map(match => {
+
+
+        const result = []
+        for (let match of match_ids) {
             if (exist_games.includes(`${match}.gzip`)) {
-                return files.from_gzip(match)
+                result.push(files.from_gzip(match))
             } else {
-                return new Promise(async resolve => {
-                    const data = await steam_request("GetMatchDetails", { match_id: match })
-                    files.to_gzip(data, match)
-                    resolve(data)
-                    return
-                })
+                const data = await steam_request("GetMatchDetails", { match_id: match })
+                files.to_gzip(data, match)
+                result.push(data)
             }
-        })
-        const data = await Promise.all(promises)
-        return data
+        }
+
+
+        return result
 
     },
 
