@@ -9,11 +9,37 @@ const hero_cleaner = require("./funcs/heros/hero_cleaner")
 const scrap = require("./pick-ban/scrap")
 const pick_ban = require("./pick-ban")
 const keys = Object.keys(routs)
-const bodyParser=require("body-parser")
+const bodyParser = require("body-parser")
 const { start_scrap } = require("./funcs/heros")
+const JWT = require("./helper/jwt")
+const  mongoose  = require("mongoose")
+
+require("dotenv").config()
 app.use(cors())
 app.use(bodyParser.json())
 
+
+
+mongoose.connect(process.env.DB)
+
+const check_token = (req, res, next) => {
+    const token = req.headers.token
+    if (!token) return next()
+    const user_data = JWT.verify(token)
+    if (!user_data) {
+        res.json({
+            status: false,
+            msg: "شناسه نامعتبر",
+            data: {}
+        })
+        return
+    }
+    else {
+        req.body.user = user_data
+        next()
+    }
+}
+app.use(check_token)
 keys.forEach(key => {
     app.use("/" + key, routs[key])
 })
