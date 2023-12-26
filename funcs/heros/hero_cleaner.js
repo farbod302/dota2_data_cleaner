@@ -54,7 +54,6 @@ const hero_cleaner = {
 
             })
             clean_att.attrib=clean_attrib
-            console.log({ clean_att:clean_att.attrib });
             const ability_additional_info = hero_file.abilities.find(a => a.name === e)
             if (ability_additional_info) {
                 const {
