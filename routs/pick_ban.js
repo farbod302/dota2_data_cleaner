@@ -4,8 +4,8 @@ const router=express.Router()
 
 
 router.post("/",(req,res)=>{
-    const {heros}=req.body
-    const scores=pick_ban.check_rate(heros)
+    const {heros,side}=req.body
+    const scores=pick_ban.check_rate(heros,side)
     res.json({
         status:true,
         msg:"",

@@ -24,8 +24,8 @@ const scrap = async (hero_id) => {
         "method": "POST"
     });
     const clean_data = await data.json()
-    const to_save = clean_data.data.heroStats.heroVsHeroMatchup.advantage[0].vs
-    fs.writeFileSync(`${__dirname}/heros/${hero_id}.json`, JSON.stringify(to_save))
+    const to_save = clean_data.data.heroStats.heroVsHeroMatchup.advantage[0].with
+    fs.writeFileSync(`${__dirname}/heros-with/${hero_id}.json`, JSON.stringify(to_save))
 }
 
 

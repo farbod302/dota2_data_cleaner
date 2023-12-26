@@ -2,14 +2,15 @@ const files = require("../helpers/files")
 
 const pick_ban = {
 
-    check_rate(heros_picked) {
+    check_rate(heros_picked,side) {
+        const folder=side == 0 ? "heros":"heros-with"
         const hero_basic = files.read_file("../clean_json/hero_basic.json")
         const hero_ids = hero_basic.map(e => e.id)
         const res = {}
         heros_picked.forEach(h => {
             hero_ids.forEach(hero => {
                 if (hero === h) return
-                const hero_matchup = files.read_file("../pick-ban/heros/" + hero + ".json")
+                const hero_matchup = files.read_file(`../pick-ban/${folder}/` + hero + ".json")
                 const selected_hero = hero_matchup.find(e => e.heroId2 == h)
                 if (!res[hero]) {
                     res[hero] = selected_hero.synergy

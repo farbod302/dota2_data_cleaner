@@ -13,6 +13,7 @@ const bodyParser = require("body-parser")
 const { start_scrap } = require("./funcs/heros")
 const JWT = require("./helper/jwt")
 const  mongoose  = require("mongoose")
+const scrap_all = require("./pick-ban/scrap")
 
 require("dotenv").config()
 app.use(cors())
@@ -91,4 +92,3 @@ app.listen(3434)
 
 
 
-hero_cleaner.clean_all()
