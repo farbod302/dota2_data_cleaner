@@ -31,6 +31,7 @@ const player_games = {
         for (let match of match_ids) {
             if (exist_games.includes(`${match}.gzip`)) {
                 result.push(files.from_gzip(match))
+                console.log(files.from_gzip(match));
             } else {
                 const data = await steam_request("GetMatchDetails", { match_id: match })
                 files.to_gzip(data, match)
