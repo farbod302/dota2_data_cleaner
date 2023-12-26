@@ -16,7 +16,8 @@ const hero_cleaner = {
         heros: "heroes.json",
         abilities: "abilities.json",
         hero_abilities: "hero_abilities.json",
-        aghs: "aghs_desc.json"
+        aghs: "aghs_desc.json",
+        abilities_clean:"../clean_json/abilities_image.json"
     }),
 
     clean_hero(id) {
@@ -30,7 +31,8 @@ const hero_cleaner = {
         const hero_abilities_name = this.all_files.hero_abilities[name]
         const { abilities, talents } = hero_abilities_name
         const clean_tallents = talents.map(t => {
-            return { ...t, name: this.all_files.abilities[t.name]?.dname }
+            const selected_talent=this.all_files.abilities_clean.find(e=>e.name == t.name )
+            return { ...t, name: selected_talent.displayName }
         })
         const hero_aghs = this.all_files.aghs.find(h => h.hero_name === name)
         let clean_abilities = abilities.map(e => {

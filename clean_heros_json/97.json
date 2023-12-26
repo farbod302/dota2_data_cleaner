@@ -1,1 +1,488 @@
-{"id":97,"name":"npc_dota_hero_magnataur","localized_name":"Magnus","primary_attr":"all","attack_type":"Melee","roles":["Initiator","Disabler","Nuker","Escape"],"img":"/apps/dota2/images/dota_react/heroes/magnataur.png?","icon":"/apps/dota2/images/dota_react/heroes/icons/magnataur.png?","base_health":120,"base_health_regen":0.5,"base_mana":75,"base_mana_regen":0.5,"base_armor":1,"base_mr":25,"base_attack_min":9,"base_attack_max":17,"base_str":25,"base_agi":9,"base_int":19,"str_gain":3.1,"agi_gain":2,"int_gain":1.6,"attack_range":150,"projectile_speed":900,"attack_rate":1.8,"base_attack_time":100,"attack_point":0.5,"move_speed":305,"turn_rate":0.8,"cm_enabled":true,"legs":4,"day_vision":1800,"night_vision":800,"max_health":670,"max_mana":303,"armor":2.5,"damage_max":54,"damage_min":46,"complexity":2,"talents":[{"name":"+10s Empower Duration","level":1},{"name":"+0.5s Shockwave Slow Duration","level":1},{"name":"+8 All Stats per hero hit with Reverse Polarity","level":2},{"name":"-7s Skewer Cooldown","level":2},{"name":"+125 Shockwave Damage","level":3},{"name":"+375 Skewer Range","level":3},{"name":"+10% Empower Damage/Cleave","level":4},{"name":"+0.8s Reverse Polarity Stun Duration","level":4}],"abilities":[{"dname":"Shockwave","behavior":"Unit Target / Point Target","dmg_type":"Magical","bkbpierce":"No","target_team":"Enemy","target_type":"Hero / Basic","desc":"Magnus sends out a wave of force, damaging enemy units in a line, pulling them towards him and slowing them for a brief period.","attrib":[{"key":"shock_speed","header":"SHOCK SPEED:","value":"900","generated":true},{"key":"shock_width","header":"SHOCK WIDTH:","value":"200","generated":true},{"key":"shock_damage","header":"DAMAGE:","value":"90 / 160 / 230 / 300"},{"key":"pull_duration","header":"PULL DURATION:","value":"0.2","generated":true},{"key":"movement_slow","header":"MOVEMENT SLOW:","value":"75%"},{"key":"slow_duration","header":"SLOW DURATION:","value":"2","generated":true},{"key":"pull_distance","header":"PULL DISTANCE:","value":"150","generated":true},{"key":"basic_slow_duration","header":"SLOW DURATION:","value":"0.9"},{"key":"return_damage_pct","header":"RETURN DAMAGE PCT:","value":"0","generated":true},{"key":"abilitycastrange","header":"CAST RANGE:","value":"1200","generated":true},{"key":"abilityduration","header":"DURATION:","value":"0.6875","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true}],"lore":"Mt. Joerlak was a somewhat unstable mass, and Magnus has learned to channel its reverberations.","mc":"70 / 80 / 90 / 100","cd":"13 / 12 / 11 / 10","img":"/apps/dota2/images/dota_react/abilities/magnataur_shockwave.png","ability_has_scepter":false,"ability_has_shard":true,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Empower","behavior":"Unit Target","bkbpierce":"Yes","dispellable":"Yes","target_team":"Friendly","target_type":"Hero / Basic","desc":"Gives an allied unit bonus damage and cleave on attack. Magnus receives 50% larger bonus.","attrib":[{"key":"abilitycastrange","header":"CAST RANGE:","value":"800","generated":true},{"key":"should_self_cast","header":"SHOULD SELF CAST:","value":"0","generated":true},{"key":"empower_duration","header":"DURATION:","value":"35"},{"key":"bonus_damage_pct","header":"BONUS DAMAGE:","value":"12% / 20% / 28% / 36%"},{"key":"cleave_damage_pct","header":"CLEAVE DAMAGE:","value":"10% / 20% / 30% / 40%"},{"key":"cleave_starting_width","header":"CLEAVE STARTING WIDTH:","value":"150","generated":true},{"key":"cleave_ending_width","header":"CLEAVE ENDING WIDTH:","value":"360","generated":true},{"key":"cleave_distance","header":"CLEAVE DISTANCE:","value":"650","generated":true},{"key":"secondary_cleave_distance","header":"SECONDARY CLEAVE DISTANCE:","value":"0","generated":true},{"key":"self_multiplier","header":"SELF MULTIPLIER:","value":"50","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true}],"lore":"With a deep bellow, Magnus displays his true power.","mc":"45 / 55 / 65 / 75","cd":"8","img":"/apps/dota2/images/dota_react/abilities/magnataur_empower.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Skewer","behavior":"Point Target","dmg_type":"Magical","bkbpierce":"No","dispellable":"Yes","target_type":"Hero","desc":"Magnus rushes forward, goring enemy units on his massive tusk. Heroes hit on the way will be dragged to the destination, then damaged and affected by slowed movement and attack speed.","attrib":[{"key":"skewer_speed","header":"SPEED:","value":"900"},{"key":"range","header":"DISTANCE:","value":"900 / 975 / 1050 / 1125"},{"key":"slow_pct","header":"SLOW:","value":"20% / 30% / 40% / 50%"},{"key":"skewer_radius","header":"SKEWER RADIUS:","value":"145","generated":true},{"key":"slow_duration","header":"SLOW DURATION:","value":"3.25"},{"key":"skewer_damage","header":"DAMAGE:","value":"90 / 180 / 270 / 360 / "},{"key":"tree_radius","header":"TREE RADIUS:","value":"200","generated":true},{"key":"tool_attack_slow","header":"ATTACK SPEED SLOW:","value":"10 / 20 / 30 / 40"},{"key":"skewer_cooldown","header":"SKEWER COOLDOWN:","value":"6","generated":true},{"key":"skewer_manacost","header":"SKEWER MANACOST:","value":"40","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true}],"lore":"Magnoceros horns are valuable in direct proportion to their danger to prospective merchants.","mc":"80","cd":"22 / 20 / 18 / 16","img":"/apps/dota2/images/dota_react/abilities/magnataur_skewer.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Horn Toss","behavior":"No Target / Hidden","dmg_type":"Magical","bkbpierce":"No","dispellable":"Yes","target_team":"Enemy","target_type":"Hero / Basic","desc":"Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.","attrib":[{"key":"damage","header":"DAMAGE:","value":"275"},{"key":"radius","header":"RADIUS:","value":"325","generated":true},{"key":"air_duration","header":"AIR DURATION:","value":"0.6"},{"key":"air_height","header":"AIR HEIGHT:","value":"300","generated":true},{"key":"slow_duration","header":"SLOW DURATION:","value":"2","generated":true},{"key":"pull_offset","header":"PULL OFFSET:","value":"75","generated":true},{"key":"destination_offset","header":"DESTINATION OFFSET:","value":"175","generated":true},{"key":"pull_angle","header":"PULL ANGLE:","value":"230","generated":true},{"key":"horn_toss_slow_pct","header":"HORN TOSS SLOW PCT:","value":"100","generated":true},{"key":"stun_duration","header":"STUN DURATION:","value":"0.75"},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.2","generated":true}],"mc":"125","cd":"30","img":"/apps/dota2/images/dota_react/abilities/magnataur_horn_toss.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":true,"ability_is_granted_by_shard":false},{"dname":"Reverse Polarity","behavior":"No Target","dmg_type":"Magical","bkbpierce":"Yes","dispellable":[],"desc":"Magnus changes properties of matter, sucking all nearby enemies in front of him and stunning them with a powerful slam and dealing damage.","attrib":[{"key":"pull_radius","header":"PULL RADIUS:","value":"410"},{"key":"polarity_damage","header":"DAMAGE:","value":"75 / 150 / 225"},{"key":"hero_stun_duration","header":"STUN DURATION:","value":"2.5 / 3 / 3.5"},{"key":"pull_duration","header":"PULL DURATION:","value":"0","generated":true},{"key":"stat_buff_duration","header":"STAT BUFF DURATION:","value":"0","generated":true},{"key":"stats_per_stack","header":"STATS PER STACK:","value":"0","generated":true},{"key":"abilitycastrange","header":"CAST RANGE:","value":"410","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true}],"lore":"Magnus fights with the fury of the erupting Mt. Joerlak.","mc":"150 / 225 / 300","cd":"120","img":"/apps/dota2/images/dota_react/abilities/magnataur_reverse_polarity.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false}],"hero_aghs":{"hero_name":"npc_dota_hero_magnataur","hero_id":97,"has_scepter":true,"scepter_desc":"Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.","scepter_skill_name":"Horn Toss","scepter_new_skill":true,"has_shard":true,"shard_desc":"Increases range, and causes Shockwave to return towards the caster's original cast location after reaching max length, hitting enemies a second time for 50% of the damage.","shard_skill_name":"Shockwave","shard_new_skill":false}}
+{
+    "id": 97,
+    "name": "npc_dota_hero_magnataur",
+    "localized_name": "Magnus",
+    "primary_attr": "all",
+    "attack_type": "Melee",
+    "roles": [
+        "Initiator",
+        "Disabler",
+        "Nuker",
+        "Escape"
+    ],
+    "img": "/apps/dota2/images/dota_react/heroes/magnataur.png?",
+    "icon": "/apps/dota2/images/dota_react/heroes/icons/magnataur.png?",
+    "base_health": 120,
+    "base_health_regen": 0.5,
+    "base_mana": 75,
+    "base_mana_regen": 0.5,
+    "base_armor": 1,
+    "base_mr": 25,
+    "base_attack_min": 9,
+    "base_attack_max": 17,
+    "base_str": 25,
+    "base_agi": 9,
+    "base_int": 19,
+    "str_gain": 3.1,
+    "agi_gain": 2,
+    "int_gain": 1.6,
+    "attack_range": 150,
+    "projectile_speed": 900,
+    "attack_rate": 1.8,
+    "base_attack_time": 100,
+    "attack_point": 0.5,
+    "move_speed": 305,
+    "turn_rate": 0.8,
+    "cm_enabled": true,
+    "legs": 4,
+    "day_vision": 1800,
+    "night_vision": 800,
+    "max_health": 670,
+    "max_mana": 303,
+    "armor": 2.5,
+    "damage_max": 54,
+    "damage_min": 46,
+    "complexity": 2,
+    "talents": [
+        {
+            "name": "+10s Empower Duration",
+            "level": 1
+        },
+        {
+            "name": "+0.5s Shockwave Slow Duration",
+            "level": 1
+        },
+        {
+            "name": "+10 All Stats per hero hit with Reverse Polarity",
+            "level": 2
+        },
+        {
+            "name": "-7s Skewer Cooldown",
+            "level": 2
+        },
+        {
+            "name": "+125 Shockwave Damage",
+            "level": 3
+        },
+        {
+            "name": "+375 Skewer Range",
+            "level": 3
+        },
+        {
+            "name": "+10% Empower Damage/Cleave",
+            "level": 4
+        },
+        {
+            "name": "+0.8s Reverse Polarity Stun Duration",
+            "level": 4
+        }
+    ],
+    "abilities": [
+        {
+            "dname": "Shockwave",
+            "behavior": "Unit Target / Point Target",
+            "dmg_type": "Magical",
+            "bkbpierce": "No",
+            "target_team": "Enemy",
+            "target_type": "Hero / Basic",
+            "desc": "Magnus sends out a wave of force, damaging enemy units in a line, pulling them towards him and slowing them for a brief period.",
+            "attrib": [
+                {
+                    "key": "shock_speed",
+                    "header": "SHOCK SPEED:",
+                    "value": "900",
+                    "generated": true
+                },
+                {
+                    "key": "shock_width",
+                    "header": "SHOCK WIDTH:",
+                    "value": "200",
+                    "generated": true
+                },
+                {
+                    "key": "shock_damage",
+                    "header": "DAMAGE:",
+                    "value": "90 / 160 / 230 / 300"
+                },
+                {
+                    "key": "pull_duration",
+                    "header": "PULL DURATION:",
+                    "value": "0.2",
+                    "generated": true
+                },
+                {
+                    "key": "movement_slow",
+                    "header": "MOVEMENT SLOW:",
+                    "value": "75%"
+                },
+                {
+                    "key": "slow_duration",
+                    "header": "SLOW DURATION:",
+                    "value": "2",
+                    "generated": true
+                },
+                {
+                    "key": "pull_distance",
+                    "header": "PULL DISTANCE:",
+                    "value": "150",
+                    "generated": true
+                },
+                {
+                    "key": "basic_slow_duration",
+                    "header": "SLOW DURATION:",
+                    "value": "0.9"
+                },
+                {
+                    "key": "return_damage_pct",
+                    "header": "RETURN DAMAGE PCT:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "1200",
+                    "generated": true
+                },
+                {
+                    "key": "abilityduration",
+                    "header": "DURATION:",
+                    "value": "0.6875",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                }
+            ],
+            "lore": "Mt. Joerlak was a somewhat unstable mass, and Magnus has learned to channel its reverberations.",
+            "mc": "70 / 80 / 90 / 100",
+            "cd": "13 / 12 / 11 / 10",
+            "img": "/apps/dota2/images/dota_react/abilities/magnataur_shockwave.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": true,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Empower",
+            "behavior": "Unit Target",
+            "bkbpierce": "Yes",
+            "dispellable": "Yes",
+            "target_team": "Friendly",
+            "target_type": "Hero / Basic",
+            "desc": "Gives an allied unit bonus damage and cleave on attack. Magnus receives 50% larger bonus.",
+            "attrib": [
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "800",
+                    "generated": true
+                },
+                {
+                    "key": "should_self_cast",
+                    "header": "SHOULD SELF CAST:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "empower_duration",
+                    "header": "DURATION:",
+                    "value": "35"
+                },
+                {
+                    "key": "bonus_damage_pct",
+                    "header": "BONUS DAMAGE:",
+                    "value": "12% / 20% / 28% / 36%"
+                },
+                {
+                    "key": "cleave_damage_pct",
+                    "header": "CLEAVE DAMAGE:",
+                    "value": "10% / 20% / 30% / 40%"
+                },
+                {
+                    "key": "cleave_starting_width",
+                    "header": "CLEAVE STARTING WIDTH:",
+                    "value": "150",
+                    "generated": true
+                },
+                {
+                    "key": "cleave_ending_width",
+                    "header": "CLEAVE ENDING WIDTH:",
+                    "value": "360",
+                    "generated": true
+                },
+                {
+                    "key": "cleave_distance",
+                    "header": "CLEAVE DISTANCE:",
+                    "value": "650",
+                    "generated": true
+                },
+                {
+                    "key": "secondary_cleave_distance",
+                    "header": "SECONDARY CLEAVE DISTANCE:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "self_multiplier",
+                    "header": "SELF MULTIPLIER:",
+                    "value": "50",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                }
+            ],
+            "lore": "With a deep bellow, Magnus displays his true power.",
+            "mc": "45 / 55 / 65 / 75",
+            "cd": "8",
+            "img": "/apps/dota2/images/dota_react/abilities/magnataur_empower.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Skewer",
+            "behavior": "Point Target",
+            "dmg_type": "Magical",
+            "bkbpierce": "No",
+            "dispellable": "Yes",
+            "target_type": "Hero",
+            "desc": "Magnus rushes forward, goring enemy units on his massive tusk. Heroes hit on the way will be dragged to the destination, then damaged and affected by slowed movement and attack speed.",
+            "attrib": [
+                {
+                    "key": "skewer_speed",
+                    "header": "SPEED:",
+                    "value": "900"
+                },
+                {
+                    "key": "range",
+                    "header": "DISTANCE:",
+                    "value": "900 / 975 / 1050 / 1125"
+                },
+                {
+                    "key": "slow_pct",
+                    "header": "SLOW:",
+                    "value": "20% / 30% / 40% / 50%"
+                },
+                {
+                    "key": "skewer_radius",
+                    "header": "SKEWER RADIUS:",
+                    "value": "145",
+                    "generated": true
+                },
+                {
+                    "key": "slow_duration",
+                    "header": "SLOW DURATION:",
+                    "value": "3.25"
+                },
+                {
+                    "key": "skewer_damage",
+                    "header": "DAMAGE:",
+                    "value": "90 / 180 / 270 / 360 / "
+                },
+                {
+                    "key": "tree_radius",
+                    "header": "TREE RADIUS:",
+                    "value": "200",
+                    "generated": true
+                },
+                {
+                    "key": "tool_attack_slow",
+                    "header": "ATTACK SPEED SLOW:",
+                    "value": "10 / 20 / 30 / 40"
+                },
+                {
+                    "key": "skewer_cooldown",
+                    "header": "SKEWER COOLDOWN:",
+                    "value": "6",
+                    "generated": true
+                },
+                {
+                    "key": "skewer_manacost",
+                    "header": "SKEWER MANACOST:",
+                    "value": "40",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                }
+            ],
+            "lore": "Magnoceros horns are valuable in direct proportion to their danger to prospective merchants.",
+            "mc": "80",
+            "cd": "22 / 20 / 18 / 16",
+            "img": "/apps/dota2/images/dota_react/abilities/magnataur_skewer.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Horn Toss",
+            "behavior": "No Target / Hidden",
+            "dmg_type": "Magical",
+            "bkbpierce": "No",
+            "dispellable": "Yes",
+            "target_team": "Enemy",
+            "target_type": "Hero / Basic",
+            "desc": "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.",
+            "attrib": [
+                {
+                    "key": "damage",
+                    "header": "DAMAGE:",
+                    "value": "275"
+                },
+                {
+                    "key": "radius",
+                    "header": "RADIUS:",
+                    "value": "325",
+                    "generated": true
+                },
+                {
+                    "key": "air_duration",
+                    "header": "AIR DURATION:",
+                    "value": "0.6"
+                },
+                {
+                    "key": "air_height",
+                    "header": "AIR HEIGHT:",
+                    "value": "300",
+                    "generated": true
+                },
+                {
+                    "key": "slow_duration",
+                    "header": "SLOW DURATION:",
+                    "value": "2",
+                    "generated": true
+                },
+                {
+                    "key": "pull_offset",
+                    "header": "PULL OFFSET:",
+                    "value": "75",
+                    "generated": true
+                },
+                {
+                    "key": "destination_offset",
+                    "header": "DESTINATION OFFSET:",
+                    "value": "175",
+                    "generated": true
+                },
+                {
+                    "key": "pull_angle",
+                    "header": "PULL ANGLE:",
+                    "value": "230",
+                    "generated": true
+                },
+                {
+                    "key": "horn_toss_slow_pct",
+                    "header": "HORN TOSS SLOW PCT:",
+                    "value": "100",
+                    "generated": true
+                },
+                {
+                    "key": "stun_duration",
+                    "header": "STUN DURATION:",
+                    "value": "0.75"
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.2",
+                    "generated": true
+                }
+            ],
+            "mc": "125",
+            "cd": "30",
+            "img": "/apps/dota2/images/dota_react/abilities/magnataur_horn_toss.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": true,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Reverse Polarity",
+            "behavior": "No Target",
+            "dmg_type": "Magical",
+            "bkbpierce": "Yes",
+            "dispellable": [],
+            "desc": "Magnus changes properties of matter, sucking all nearby enemies in front of him and stunning them with a powerful slam and dealing damage.",
+            "attrib": [
+                {
+                    "key": "pull_radius",
+                    "header": "PULL RADIUS:",
+                    "value": "410"
+                },
+                {
+                    "key": "polarity_damage",
+                    "header": "DAMAGE:",
+                    "value": "75 / 150 / 225"
+                },
+                {
+                    "key": "hero_stun_duration",
+                    "header": "STUN DURATION:",
+                    "value": "2.5 / 3 / 3.5"
+                },
+                {
+                    "key": "pull_duration",
+                    "header": "PULL DURATION:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "stat_buff_duration",
+                    "header": "STAT BUFF DURATION:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "stats_per_stack",
+                    "header": "STATS PER STACK:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "410",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                }
+            ],
+            "lore": "Magnus fights with the fury of the erupting Mt. Joerlak.",
+            "mc": "150 / 225 / 300",
+            "cd": "120",
+            "img": "/apps/dota2/images/dota_react/abilities/magnataur_reverse_polarity.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        }
+    ],
+    "hero_aghs": {
+        "hero_name": "npc_dota_hero_magnataur",
+        "hero_id": 97,
+        "has_scepter": true,
+        "scepter_desc": "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.",
+        "scepter_skill_name": "Horn Toss",
+        "scepter_new_skill": true,
+        "has_shard": true,
+        "shard_desc": "Increases range, and causes Shockwave to return towards the caster's original cast location after reaching max length, hitting enemies a second time for 50% of the damage.",
+        "shard_skill_name": "Shockwave",
+        "shard_new_skill": false
+    }
+}

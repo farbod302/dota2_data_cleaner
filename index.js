@@ -89,3 +89,6 @@ app.listen(3434)
 
 // clean_item_images()
 
+
+
+hero_cleaner.clean_all()
