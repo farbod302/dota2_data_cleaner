@@ -4,7 +4,7 @@ const fs = require("fs")
 const player_games = {
 
     async get_match_history(account_id) {
-        const max_page = 1
+        const max_page = 100
         let match_ids = []
         let last_match = null
         for (let i = 0; i < max_page; i++) {
@@ -30,7 +30,7 @@ const player_games = {
         const result = []
         for (let match of match_ids) {
             if (exist_games.includes(`${match}.gzip`)) {
-                const file=await files.from_gzip(match)
+                const file = await files.from_gzip(match)
                 result.push(file)
             } else {
                 const data = await steam_request("GetMatchDetails", { match_id: match })

@@ -14,6 +14,7 @@ const { start_scrap } = require("./funcs/heros")
 const JWT = require("./helper/jwt")
 const  mongoose  = require("mongoose")
 const scrap_all = require("./pick-ban/scrap")
+const _validator = require("./helpers/validator")
 
 require("dotenv").config()
 app.use(cors())
@@ -89,6 +90,5 @@ app.listen(3434)
 // }
 
 // clean_item_images()
-
 
 
