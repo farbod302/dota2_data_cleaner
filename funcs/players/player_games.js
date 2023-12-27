@@ -4,7 +4,7 @@ const fs = require("fs")
 const player_games = {
 
     async get_match_history(account_id) {
-        const max_page = 100
+        const max_page = 1
         let match_ids = []
         let last_match = null
         for (let i = 0; i < max_page; i++) {
