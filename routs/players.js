@@ -93,9 +93,10 @@ router.get("/game_history_list", async (req, res) => {
         })
     }
     catch (err) {
+        console.log({err});
         res.json({
             status: false,
-            msg: "شناسه dota نامعتبر",
+            msg: "شناسه دوتا نامعتبر است",
             data: {}
         })
     }
