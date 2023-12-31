@@ -98,7 +98,7 @@ router.get("/game_history_list", async (req, res) => {
         console.log({ err });
         res.json({
             status: false,
-            msg: "شناسه دوتا نامعتبر است",
+            msg: "شناسه حساب دوتا۲ نامعتبر است",
             data: {}
         })
     }
