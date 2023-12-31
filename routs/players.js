@@ -113,6 +113,7 @@ router.get("/match_detail/:match_id", async (req, res) => {
     const selected_match = await files.from_gzip(match_id)
     const { players, radiant_win, duration, pre_game_duration, start_time, game_mode, radiant_score, dire_score, picks_bans
     } = selected_match.result
+    console.log(selected_match.result);
     const clean_players = players.map(player => {
         const {
             hero_id,
