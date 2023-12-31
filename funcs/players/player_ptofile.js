@@ -1,4 +1,5 @@
 const get_player_data = async (dota_id) => {
+    const fetch=require("node-fetch")
     try {
         const data = await fetch("https://api.stratz.com/graphql", {
             "headers": {
