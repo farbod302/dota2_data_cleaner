@@ -7,7 +7,7 @@ const sms_handler = {
     async send_sms(phone) {
         this.sms_list = this.sms_list.filter(e => e.phone !== phone)
         const random_num = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000
-        smsir.SendVerifyCode(phone, 333755, [{ name: "CODE", value: `${random_num}` }])
+        smsir.SendVerifyCode(phone, 100000, [{ name: "CODE", value: `:${random_num}` }])
         this.sms_list.push({
             phone, code: random_num
         })
