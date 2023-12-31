@@ -1,6 +1,7 @@
 const express = require("express")
 const player_games = require("../funcs/players/player_games")
 const files = require("../helpers/files")
+const { get_player_data } = require("../funcs/players/player_ptofile")
 const router = express.Router()
 const heros_list = files.read_file("../clean_json/hero_basic.json")
 
@@ -16,7 +17,7 @@ router.get("/", async (req, res) => {
     }
     const { dota_id } = user
     const match_history = await player_games.get_match_history(dota_id)
-
+    const profile_data=await get_player_data(dota_id)
     //clean game history
 
     const clean_heros_list = []
@@ -78,7 +79,7 @@ router.get("/", async (req, res) => {
         status: true,
         msg: "",
         data: {
-            heros_status:clean_hero, overall
+            heros_status:clean_hero, overall,identity:profile_data
         }
     })
 

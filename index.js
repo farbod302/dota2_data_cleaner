@@ -15,6 +15,7 @@ const JWT = require("./helper/jwt")
 const  mongoose  = require("mongoose")
 const scrap_all = require("./pick-ban/scrap")
 const _validator = require("./helpers/validator")
+const { get_player_data } = require("./funcs/players/player_ptofile")
 
 require("dotenv").config()
 app.use(cors())
@@ -90,5 +91,6 @@ app.listen(3434)
 // }
 
 // clean_item_images()
+
 
 
