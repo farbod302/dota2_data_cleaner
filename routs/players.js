@@ -8,9 +8,9 @@ const router = express.Router()
 const game_modes = [
     "None",
     "All Pick",
-    "Captain Mode",
-    "Single Draft",
+    "Captain's Mode",
     "Random Draft",
+    "Single Draft",
     "All Random",
     "Intro",
     "Diretide",
@@ -35,6 +35,7 @@ const game_modes = [
 
 router.get("/game_history_list", async (req, res) => {
     try {
+        const accepted_games = [1, 2, 3, 4, 22, 23, 18, 14]
         const account_id = req.body?.user?.dota_id
         if (!account_id) {
             res.json({
@@ -48,6 +49,7 @@ router.get("/game_history_list", async (req, res) => {
         const heros_list = files.read_file("../clean_json/hero_basic.json")
         const clean_data = player_last_matches.map(game => {
             const { players, radiant_win, duration, start_time, match_id, game_mode, radiant_score, dire_score } = game.result
+            if (accepted_games.includes(game_mode)) return null
             const player_slot = players.find(player => player.account_id == account_id)
             const all_hero_ids = players.map(e => {
                 return {
@@ -88,12 +90,12 @@ router.get("/game_history_list", async (req, res) => {
             status: true,
             msg: "",
             data: {
-                match_history: clean_data
+                match_history: clean_data.filter(e => e)
             }
         })
     }
     catch (err) {
-        console.log({err});
+        console.log({ err });
         res.json({
             status: false,
             msg: "شناسه دوتا نامعتبر است",
@@ -113,7 +115,6 @@ router.get("/match_detail/:match_id", async (req, res) => {
     const selected_match = await files.from_gzip(match_id)
     const { players, radiant_win, duration, pre_game_duration, start_time, game_mode, radiant_score, dire_score, picks_bans
     } = selected_match.result
-    console.log(selected_match.result);
     const clean_players = players.map(player => {
         const {
             hero_id,
@@ -203,14 +204,14 @@ router.get("/match_detail/:match_id", async (req, res) => {
             denies
         }
     })
-    const clean_pick_ban = picks_bans.map(p => {
+    const clean_pick_ban = picks_bans?.map(p => {
         const { hero_id } = p
         const s_hero = heros.find(e => e.id === hero_id)
         return {
             ...p,
             hero_image: s_hero.image
         }
-    })
+    }) || []
     const winner = radiant_win ? "Radiant" : "Dire"
     res.json({
         status: true,
