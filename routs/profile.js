@@ -79,7 +79,8 @@ router.get("/", async (req, res) => {
         status: true,
         msg: "",
         data: {
-            heros_status:clean_hero, overall,...profile_data
+            ...profile_data,
+            heros_status:clean_hero, overall
         }
     })
 
