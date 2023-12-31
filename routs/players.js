@@ -49,7 +49,6 @@ router.get("/game_history_list", async (req, res) => {
         const heros_list = files.read_file("../clean_json/hero_basic.json")
         const clean_data = player_last_matches.map(game => {
             const { players, radiant_win, duration, start_time, match_id, game_mode, radiant_score, dire_score } = game.result
-            console.log({game_mode});
             if (!accepted_games.includes(game_mode)) return null
             const player_slot = players.find(player => player.account_id == account_id)
             const all_hero_ids = players.map(e => {

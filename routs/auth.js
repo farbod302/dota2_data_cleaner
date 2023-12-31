@@ -60,7 +60,7 @@ router.post("/sign_up",async (req, res) => {
         return
     }
 
-    const is_valid_dota_id=await _validator.validate_dota_id()
+    const is_valid_dota_id=await _validator.validate_dota_id(dota_id)
     if(!is_valid_dota_id){
         res.json({
             status:false,
