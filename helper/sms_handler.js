@@ -1,9 +1,13 @@
+const { Smsir } = require('smsir-js')
+const smsir = new Smsir(process.env.SMS_KEY, 30007871)
+
+
 const sms_handler = {
     sms_list: [],
-    send_sms(phone) {
+    async send_sms(phone) {
         this.sms_list = this.sms_list.filter(e => e.phone !== phone)
-        const random_num = 1234
-        //send code
+        const random_num = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000
+        smsir.SendVerifyCode(phone, 333755, [{ name: "CODE", value: `${random_num}` }])
         this.sms_list.push({
             phone, code: random_num
         })
@@ -18,4 +22,4 @@ const sms_handler = {
     }
 }
 
-module.exports=sms_handler
+module.exports = sms_handler

@@ -1,5 +1,6 @@
 
 const express = require("express")
+require("dotenv").config()
 const app = express()
 const routs = require("./routs/index")
 const cors = require("cors")
@@ -17,7 +18,7 @@ const scrap_all = require("./pick-ban/scrap")
 const _validator = require("./helpers/validator")
 const { get_player_data } = require("./funcs/players/player_ptofile")
 
-require("dotenv").config()
+
 app.use(cors())
 app.use(bodyParser.json())
 
