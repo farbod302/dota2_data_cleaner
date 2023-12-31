@@ -35,7 +35,8 @@ const get_player_data = async (dota_id) => {
             medal,
             star
         }
-    } catch {
+    } catch(err) {
+        console.log(err);
         return {
             name: null,
             avatar: null,
