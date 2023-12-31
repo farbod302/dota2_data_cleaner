@@ -26,7 +26,7 @@ router.get("/hero_detail/:hero_id", (req, res) => {
     catch {
         res.json({
             status: false,
-            msg: "Invalid hero name",
+            msg: "هیرو نامعتبر است",
             data: {}
         })
     }

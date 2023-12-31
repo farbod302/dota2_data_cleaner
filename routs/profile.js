@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
     if (!user) {
         res.json({
             status: false,
-            msg: "Invalid Token",
+            msg: "شناسه کاربری نامعتبر است",
             data: {}
         })
         return
