@@ -34042,6 +34042,7 @@
       "Unit Target",
       "Hidden"
     ],
+    "de":"In MegaMeepo form, Meepo flings the topmost meepo towards a target within a %AbilityCastRange% range, dealing damage and slowing their movement speed.",
     "dmg_type": "Magical",
     "bkbpierce": "No",
     "dispellable": "Yes",
