@@ -42,7 +42,8 @@ const hero_cleaner = {
             const { hasShardUpgrade, isGrantedByShard, isGrantedByScepter, hasScepterUpgrade } = stat
             const { displayName, description, attributes } = language
             const secondary_file = this.all_files.abilities[name]
-            const { behavior, dmg_type, bkbpierce, target_team, target_type } = secondary_file
+            const { behavior, dmg_type, bkbpierce, target_team, target_type,attrib } = secondary_file
+            console.log(secondary_file);
             return {
                 dname: displayName,
                 behavior: behavior?.toString() || null,
@@ -51,14 +52,15 @@ const hero_cleaner = {
                 target_type: target_type?.toString() || null,
                 bkbpierce: bkbpierce || null,
                 desc: `${description}${hasScepterUpgrade ? ` \n Aghanim Upgrade: ${language.aghanimDescription}` : ""} ${hasShardUpgrade ? `${`\n Shard Upgrade: ${language.shardDescription}`}` : ""}`,
-                attrib: attributes.map(at => {
-                    const spited = at.split(":")
-                    return {
-                        key: spited[0],
-                        header: spited[0],
-                        value: spited[1]
-                    }
-                }),
+                // attrib: attributes.map(at => {
+                //     const spited = at.split(":")
+                //     return {
+                //         key: spited[0],
+                //         header: spited[0],
+                //         value: spited[1]
+                //     }
+                // }),
+                attrib,
                 mc: secondary_file.mc?.toString() || null,
                 cd: secondary_file.cd?.toString() || null,
                 img: `/apps/dota2/images/dota_react/abilities/${name}.png`,
