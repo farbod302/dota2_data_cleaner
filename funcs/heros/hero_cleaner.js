@@ -33,7 +33,7 @@ const hero_cleaner = {
         const { abilities, talents } = hero_abilities_name
         const clean_tallents = talents.map(t => {
             const selected_talent = this.all_files.abilities_clean.find(e => e.id == t.abilityId)
-            return { ...t, name: selected_talent.displayName, id: selected_talent.id }
+            return { ...t, name: selected_talent.displayName, id: selected_talent.id, level: (Math.floor(t.slot / 2) + 1) }
         })
 
         const clean_abilities = abilities.map(ab => {
@@ -76,7 +76,7 @@ const hero_cleaner = {
             damage_min: primary_attr !== 3 ? damage_min : Math.floor(damage_min + ((str_base + agi_base + int_base) * 0.7)),
             complexity: hero_file.complexity,
             talents: clean_tallents,
-            abilities: clean_abilities.filter(e=>e.dname),
+            abilities: clean_abilities.filter(e => e.dname),
 
         }
     }
