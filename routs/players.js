@@ -174,10 +174,10 @@ router.get("/match_detail/:match_id", async (req, res) => {
             const selected_hero = files.read_file(`../clean_heros_json/${hero_id}.json`)
             const talent_tree = selected_hero.talents
             const clean_tree = talent_tree.map(t => {
-                const is_picked = clean_ab.find(e => e.display_name === t.name)
+                const is_picked = clean_ab.some(e => e.display_name.indexOf(t.name.slice(-4)) > -1)
                 return {
                     ...t,
-                    is_picked: is_picked ? true : false
+                    is_picked
                 }
             })
 
