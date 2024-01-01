@@ -51,7 +51,7 @@ const hero_cleaner = {
                 target_type: target_type?.toString() || null,
                 bkbpierce: bkbpierce || null,
                 desc: `${description}${hasScepterUpgrade ? ` \n Aghanim Upgrade: ${language.aghanimDescription}` : ""} ${hasShardUpgrade ? `${`\n Shard Upgrade: ${language.shardDescription}`}` : ""}`,
-                attributes: attributes.map(at => {
+                attrib: attributes.map(at => {
                     const spited = at.split(":")
                     return {
                         key: spited[0],
@@ -66,7 +66,7 @@ const hero_cleaner = {
                 ability_has_shard: hasShardUpgrade,
                 ability_is_granted_by_scepter: isGrantedByScepter,
                 ability_is_granted_by_shard: isGrantedByShard
-
+              
             }
         })
         return {
