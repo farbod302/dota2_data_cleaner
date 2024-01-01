@@ -1,5 +1,7 @@
 const files = require("../../helpers/files")
 const fs = require("fs")
+const { convert } = require('html-to-text');
+
 const hero_cleaner = {
 
     HERO_IDS: 150,
@@ -42,8 +44,7 @@ const hero_cleaner = {
             const { hasShardUpgrade, isGrantedByShard, isGrantedByScepter, hasScepterUpgrade } = stat
             const { displayName, description, attributes } = language
             const secondary_file = this.all_files.abilities[name]
-            const { behavior, dmg_type, bkbpierce, target_team, target_type,attrib } = secondary_file
-            console.log(secondary_file);
+            const { behavior, dmg_type, bkbpierce, target_team, target_type, attrib } = secondary_file
             return {
                 dname: displayName,
                 behavior: behavior?.toString() || null,
@@ -51,7 +52,7 @@ const hero_cleaner = {
                 target_team: target_team?.toString() || null,
                 target_type: target_type?.toString() || null,
                 bkbpierce: bkbpierce || null,
-                desc: `${description}${hasScepterUpgrade ? ` \n Aghanim Upgrade: ${language.aghanimDescription}` : ""} ${hasShardUpgrade ? `${`\n Shard Upgrade: ${language.shardDescription}`}` : ""}`,
+                desc: `${convert(description[0])}${hasScepterUpgrade && language.aghanimDescription ? ` \n\n Aghanim Upgrade: ${convert(language.aghanimDescription)}` : ""} ${hasShardUpgrade && language.shardDescription ? `${`\n\n Shard Upgrade: ${convert(language.shardDescription)}`}` : ""}`,
                 // attrib: attributes.map(at => {
                 //     const spited = at.split(":")
                 //     return {
@@ -68,7 +69,7 @@ const hero_cleaner = {
                 ability_has_shard: hasShardUpgrade,
                 ability_is_granted_by_scepter: isGrantedByScepter,
                 ability_is_granted_by_shard: isGrantedByShard
-              
+
             }
         })
         return {
