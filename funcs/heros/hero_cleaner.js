@@ -17,7 +17,8 @@ const hero_cleaner = {
         abilities: "abilities.json",
         hero_abilities: "hero_abilities.json",
         aghs: "aghs_desc.json",
-        abilities_clean:"../clean_json/abilities_image.json"
+        abilities_clean: "../clean_json/abilities_image.json",
+        comp_abilities: "abilities_image.json"
     }),
 
     clean_hero(id) {
@@ -28,55 +29,46 @@ const hero_cleaner = {
         const { max_health, max_mana, turn_rate, armor, damage_max, damage_min, primary_attr
             , str_base, agi_base, int_base
         } = hero_file
-        const hero_abilities_name = this.all_files.hero_abilities[name]
+        const hero_abilities_name = this.all_files.hero_abilities[id]
         const { abilities, talents } = hero_abilities_name
         const clean_tallents = talents.map(t => {
-            const selected_talent=this.all_files.abilities_clean.find(e=>e.name == t.name )
-            return { ...t, name: selected_talent.displayName ,id:selected_talent.id}
+            const selected_talent = this.all_files.abilities_clean.find(e => e.id == t.abilityId)
+            return { ...t, name: selected_talent.displayName, id: selected_talent.id }
         })
-        const hero_aghs = this.all_files.aghs.find(h => h.hero_name === name)
-        let clean_abilities = abilities.map(e => {
-            const att = this.all_files.abilities[e]
-            const clean_att = { ...att }
-            const keys = ["behavior", "dmg_type", "mc", "cd", "dmg", "target_team", "target_type"]
-            for (let key of keys) {
-                if (clean_att[key] && typeof clean_att[key] === "object") {
-                    clean_att[key] = clean_att[key].join(" / ")
-                }
-            }
-            const clean_attrib = clean_att.attrib.map(a => {
-                let { value } = a
-                if (typeof value === "object") {
-                    value = value.join(" / ")
-                }
-                return {
-                    ...a,
-                    value
-                }
 
-            })
-            clean_att.attrib=clean_attrib
-            const ability_additional_info = hero_file.abilities.find(a => a.name === e)
-            if (ability_additional_info) {
-                const {
-                    ability_has_scepter,
-                    ability_has_shard,
-                    ability_is_granted_by_scepter,
-                    ability_is_granted_by_shard,
-                } = ability_additional_info
+        const clean_abilities = abilities.map(ab => {
+            const selected_ab = this.all_files.comp_abilities[ab.abilityId]
+            const { name, language, stat } = selected_ab
+            const { hasShardUpgrade, isGrantedByShard, isGrantedByScepter, hasScepterUpgrade } = stat
+            const { displayName, description, attributes } = language
+            const secondary_file = this.all_files.abilities[name]
+            const { behavior, dmg_type, bkbpierce, target_team, target_type } = secondary_file
+            return {
+                dname: displayName,
+                behavior: behavior?.toString() || null,
+                dmg_type: dmg_type?.toString() || null,
+                target_team: target_team?.toString() || null,
+                target_type: target_type?.toString() || null,
+                bkbpierce: bkbpierce || null,
+                desc: `${description}${hasScepterUpgrade ? ` \n Aghanim Upgrade: ${language.aghanimDescription}` : ""} ${hasShardUpgrade ? `${`\n Shard Upgrade: ${language.shardDescription}`}` : ""}`,
+                attributes: attributes.map(at => {
+                    const spited = at.split(":")
+                    return {
+                        key: spited[0],
+                        header: spited[0],
+                        value: spited[1]
+                    }
+                }),
+                mc: secondary_file.mc?.toString() || null,
+                cd: secondary_file.cd?.toString() || null,
+                img: `/apps/dota2/images/dota_react/abilities/${name}.png`,
+                ability_has_scepter: hasScepterUpgrade,
+                ability_has_shard: hasShardUpgrade,
+                ability_is_granted_by_scepter: isGrantedByScepter,
+                ability_is_granted_by_shard: isGrantedByShard
 
-                return {
-                    ...clean_att, ability_has_scepter,
-                    ability_has_shard,
-                    ability_is_granted_by_scepter,
-                    ability_is_granted_by_shard
-                }
-
-            } else {
-                return null
             }
         })
-        clean_abilities = clean_abilities.filter(e => e)
         return {
             ...hero_main_file,
             max_health, max_mana, turn_rate, armor,
@@ -84,8 +76,8 @@ const hero_cleaner = {
             damage_min: primary_attr !== 3 ? damage_min : Math.floor(damage_min + ((str_base + agi_base + int_base) * 0.7)),
             complexity: hero_file.complexity,
             talents: clean_tallents,
-            abilities: clean_abilities,
-            hero_aghs
+            abilities: clean_abilities.filter(e=>e.dname),
+
         }
     }
 }
