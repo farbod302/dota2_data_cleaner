@@ -34042,7 +34042,7 @@
       "Unit Target",
       "Hidden"
     ],
-    "desc":"In MegaMeepo form, Meepo flings the topmost meepo towards a target within a %AbilityCastRange% range, dealing damage and slowing their movement speed.",
+    "desc":"In MegaMeepo form, Meepo flings the topmost meepo towards a target within a 300 range, dealing damage and slowing their movement speed.",
     "dmg_type": "Magical",
     "bkbpierce": "No",
     "dispellable": "Yes",
@@ -47363,6 +47363,7 @@
   },
   "grimstroke_dark_portrait": {
     "dname": "Dark Portrait",
+    "desc":"Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 95% magic resistance, and has bonus movement speed and attack damage.",
     "behavior": [
       "Unit Target",
       "Hidden"
