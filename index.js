@@ -19,6 +19,11 @@ const _validator = require("./helpers/validator")
 const { get_player_data } = require("./funcs/players/player_ptofile")
 
 
+String.prototype.replaceAll = function(str1, str2, ignore) 
+{
+    return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+} 
+
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -95,3 +100,4 @@ app.listen(3434)
 
 
 
+hero_cleaner.clean_all()

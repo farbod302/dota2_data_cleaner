@@ -13,7 +13,7 @@ const convertor=(html)=>{
                 }
             ]
         }
-        ).replace("\n","")
+        ).replaceAll("\n","")
 }
 
 const hero_cleaner = {
