@@ -1,1 +1,393 @@
-{"id":8,"name":"npc_dota_hero_juggernaut","localized_name":"Juggernaut","primary_attr":"agi","attack_type":"Melee","roles":["Carry","Pusher","Escape"],"img":"/apps/dota2/images/dota_react/heroes/juggernaut.png?","icon":"/apps/dota2/images/dota_react/heroes/icons/juggernaut.png?","base_health":120,"base_health_regen":0.5,"base_mana":75,"base_mana_regen":0,"base_armor":0,"base_mr":25,"base_attack_min":20,"base_attack_max":22,"base_str":20,"base_agi":34,"base_int":14,"str_gain":2.2,"agi_gain":2.8,"int_gain":1.4,"attack_range":150,"projectile_speed":0,"attack_rate":1.4,"base_attack_time":110,"attack_point":0.33,"move_speed":300,"turn_rate":0.6,"cm_enabled":true,"legs":2,"day_vision":1800,"night_vision":800,"max_health":560,"max_mana":243,"armor":5.666667,"damage_max":56,"damage_min":54,"complexity":1,"talents":[{"slot":0,"gameVersionId":170,"abilityId":7394,"name":"+10% Blade Dance Crit Damage","id":7394,"level":1},{"slot":1,"gameVersionId":170,"abilityId":7021,"name":"+150 Healing Ward Radius","id":7021,"level":1},{"slot":2,"gameVersionId":170,"abilityId":628,"name":"-20s Healing Ward Cooldown","id":628,"level":2},{"slot":3,"gameVersionId":170,"abilityId":1192,"name":"+30 Movement Speed During Blade Fury","id":1192,"level":2},{"slot":4,"gameVersionId":170,"abilityId":915,"name":"+60% Blade Dance Lifesteal","id":915,"level":3},{"slot":5,"gameVersionId":170,"abilityId":1150,"name":"-3s Blade Fury Cooldown","id":1150,"level":3},{"slot":6,"gameVersionId":170,"abilityId":1013,"name":"+1s Omnislash Duration","id":1013,"level":4},{"slot":7,"gameVersionId":170,"abilityId":6662,"name":"+2 Healing Ward Hits to Kill","id":6662,"level":4}],"abilities":[{"dname":"Blade Fury","behavior":"No Target,Instant Cast","dmg_type":"Magical","target_team":null,"target_type":null,"bkbpierce":"No","desc":"Causes a bladestorm of destructive force around Juggernaut, rendering him debuffimmune, increasing his magic resistance by 80%, and dealing damage to nearbyenemy units. Juggernaut deals damage in an interval equal to 2.0x his attackspeed \n\n Shard Upgrade: Increases Blade Fury radius, and slows enemies by %bonus_movement_slow%.","attrib":[{"key":"blade_fury_damage_tick","header":"BLADE FURY DAMAGE TICK:","value":"0.2","generated":true},{"key":"blade_fury_radius","header":"RADIUS:","value":"260"},{"key":"blade_fury_damage","header":"DAMAGE:","value":["90","115","140","165"]},{"key":"duration","header":"DURATION:","value":"5"},{"key":"shard_bonus_move_speed","header":"BONUS MOVE SPEED:","value":"75"},{"key":"shard_attack_rate","header":"ATTACK RATE:","value":"1.4"},{"key":"shard_damage_pct","header":"ATTACK DAMAGE:","value":"75%"},{"key":"abilitycastrange","header":"CAST RANGE:","value":"0","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0","generated":true}],"mc":"120,110,100,90","cd":"42,34,26,18","img":"/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png","ability_has_scepter":false,"ability_has_shard":true,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Healing Ward","behavior":"AOE,Point Target","dmg_type":null,"target_team":null,"target_type":null,"bkbpierce":"Yes","desc":"Summons a Healing Ward which heals all nearby allied units, based on their maxhealth. The Healing Ward moves at 325 movement speed after being summoned. Lasts25.0 seconds. ","attrib":[{"key":"healing_ward_heal_amount","header":"MAX HEALTH PER SECOND:","value":["2%","3%","4%","5%"]},{"key":"healing_ward_aura_radius","header":"RADIUS:","value":"400"},{"key":"healing_ward_movespeed_tooltip","header":"HEALING WARD MOVESPEED TOOLTIP:","value":"325","generated":true},{"key":"healing_ward_bonus_health","header":"HEALING WARD BONUS HEALTH:","value":"0","generated":true},{"key":"healing_ward_hits_to_kill_tooltip","header":"HITS TO DESTROY:","value":"1"},{"key":"abilitycastrange","header":"CAST RANGE:","value":"350","generated":true},{"key":"abilityduration","header":"DURATION:","value":"25","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true}],"mc":"140,130,120,110","cd":"60","img":"/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Blade Dance","behavior":"Passive","dmg_type":null,"target_team":null,"target_type":null,"bkbpierce":null,"desc":"Gives Juggernaut a chance to deal critical damage on each attack. ","attrib":[{"key":"blade_dance_crit_chance","header":"CRITICAL CHANCE:","value":["20%","25%","30%","35%"]},{"key":"blade_dance_crit_mult","header":"CRITICAL DAMAGE:","value":"190%"},{"key":"blade_dance_lifesteal","header":"BLADE DANCE LIFESTEAL:","value":"0","generated":true}],"mc":null,"cd":null,"img":"/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png","ability_has_scepter":false,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false},{"dname":"Swiftslash","behavior":"Unit Target","dmg_type":"Physical","target_team":"Enemy","target_type":"Hero,Basic","bkbpierce":"Yes","desc":"Performs a short Omnislash for 1 seconds. ","attrib":[{"key":"duration","header":"DURATION:","value":"1"},{"key":"abilitycastrange","header":"CAST RANGE:","value":"550"},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true}],"mc":"125","cd":"20","img":"/apps/dota2/images/dota_react/abilities/juggernaut_swift_slash.png","ability_has_scepter":true,"ability_has_shard":false,"ability_is_granted_by_scepter":true,"ability_is_granted_by_shard":false},{"dname":"Omnislash","behavior":"Unit Target","dmg_type":"Physical","target_team":"Enemy","target_type":"Hero,Basic","bkbpierce":"Yes","desc":"Juggernaut leaps towards the target enemy units, and then slashes the target andother nearby enemy units at an increased attack rate. Juggernaut is invulnerablefor the duration. ","attrib":[{"key":"attack_rate_multiplier","header":"SLASHES RATE MULTIPLIER:","value":"1.5"},{"key":"bonus_damage","header":"BONUS DAMAGE:","value":["30","40","50"]},{"key":"bonus_attack_speed","header":"BONUS ATTACK SPEED:","value":"40"},{"key":"duration","header":"DURATION:","value":["3","3.25","3.5"]},{"key":"omni_slash_radius","header":"SLASH JUMP RADIUS:","value":"425"},{"key":"abilitycastrange","header":"CAST RANGE:","value":"350"},{"key":"dispel","header":"DISPEL:","value":"0","generated":true},{"key":"abilitycastpoint","header":"CAST TIME:","value":"0.3","generated":true}],"mc":"200,275,350","cd":"120","img":"/apps/dota2/images/dota_react/abilities/juggernaut_omni_slash.png","ability_has_scepter":true,"ability_has_shard":false,"ability_is_granted_by_scepter":false,"ability_is_granted_by_shard":false}]}
+{
+    "id": 8,
+    "name": "npc_dota_hero_juggernaut",
+    "localized_name": "Juggernaut",
+    "primary_attr": "agi",
+    "attack_type": "Melee",
+    "roles": [
+        "Carry",
+        "Pusher",
+        "Escape"
+    ],
+    "img": "/apps/dota2/images/dota_react/heroes/juggernaut.png?",
+    "icon": "/apps/dota2/images/dota_react/heroes/icons/juggernaut.png?",
+    "base_health": 120,
+    "base_health_regen": 0.5,
+    "base_mana": 75,
+    "base_mana_regen": 0,
+    "base_armor": 0,
+    "base_mr": 25,
+    "base_attack_min": 20,
+    "base_attack_max": 22,
+    "base_str": 20,
+    "base_agi": 34,
+    "base_int": 14,
+    "str_gain": 2.2,
+    "agi_gain": 2.8,
+    "int_gain": 1.4,
+    "attack_range": 150,
+    "projectile_speed": 0,
+    "attack_rate": 1.4,
+    "base_attack_time": 110,
+    "attack_point": 0.33,
+    "move_speed": 300,
+    "turn_rate": 0.6,
+    "cm_enabled": true,
+    "legs": 2,
+    "day_vision": 1800,
+    "night_vision": 800,
+    "max_health": 560,
+    "max_mana": 243,
+    "armor": 5.666667,
+    "damage_max": 56,
+    "damage_min": 54,
+    "complexity": 1,
+    "talents": [
+        {
+            "slot": 0,
+            "gameVersionId": 170,
+            "abilityId": 7394,
+            "name": "+10% Blade Dance Crit Damage",
+            "id": 7394,
+            "level": 1
+        },
+        {
+            "slot": 1,
+            "gameVersionId": 170,
+            "abilityId": 7021,
+            "name": "+150 Healing Ward Radius",
+            "id": 7021,
+            "level": 1
+        },
+        {
+            "slot": 2,
+            "gameVersionId": 170,
+            "abilityId": 628,
+            "name": "-20s Healing Ward Cooldown",
+            "id": 628,
+            "level": 2
+        },
+        {
+            "slot": 3,
+            "gameVersionId": 170,
+            "abilityId": 1192,
+            "name": "+30 Movement Speed During Blade Fury",
+            "id": 1192,
+            "level": 2
+        },
+        {
+            "slot": 4,
+            "gameVersionId": 170,
+            "abilityId": 915,
+            "name": "+60% Blade Dance Lifesteal",
+            "id": 915,
+            "level": 3
+        },
+        {
+            "slot": 5,
+            "gameVersionId": 170,
+            "abilityId": 1150,
+            "name": "-3s Blade Fury Cooldown",
+            "id": 1150,
+            "level": 3
+        },
+        {
+            "slot": 6,
+            "gameVersionId": 170,
+            "abilityId": 1013,
+            "name": "+1s Omnislash Duration",
+            "id": 1013,
+            "level": 4
+        },
+        {
+            "slot": 7,
+            "gameVersionId": 170,
+            "abilityId": 6662,
+            "name": "+2 Healing Ward Hits to Kill",
+            "id": 6662,
+            "level": 4
+        }
+    ],
+    "abilities": [
+        {
+            "dname": "Blade Fury",
+            "behavior": "No Target,Instant Cast",
+            "dmg_type": "Magical",
+            "target_team": null,
+            "target_type": null,
+            "bkbpierce": "No",
+            "desc": "Causes a bladestorm of destructive force around Juggernaut, rendering him debuffimmune, increasing his magic resistance by 80 , and dealing damage to nearbyenemy units. Juggernaut deals damage in an interval equal to 2.0x his attackspeed \n\n Shard Upgrade: Increases Blade Fury radius, and slows enemies by  35 .",
+            "attrib": [
+                {
+                    "key": "blade_fury_damage_tick",
+                    "header": "BLADE FURY DAMAGE TICK:",
+                    "value": "0.2",
+                    "generated": true
+                },
+                {
+                    "key": "blade_fury_radius",
+                    "header": "RADIUS:",
+                    "value": "260"
+                },
+                {
+                    "key": "blade_fury_damage",
+                    "header": "DAMAGE:",
+                    "value": [
+                        "90",
+                        "115",
+                        "140",
+                        "165"
+                    ]
+                },
+                {
+                    "key": "duration",
+                    "header": "DURATION:",
+                    "value": "5"
+                },
+                {
+                    "key": "shard_bonus_move_speed",
+                    "header": "BONUS MOVE SPEED:",
+                    "value": "75"
+                },
+                {
+                    "key": "shard_attack_rate",
+                    "header": "ATTACK RATE:",
+                    "value": "1.4"
+                },
+                {
+                    "key": "shard_damage_pct",
+                    "header": "ATTACK DAMAGE:",
+                    "value": "75%"
+                },
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0",
+                    "generated": true
+                }
+            ],
+            "mc": "120,110,100,90",
+            "cd": "42,34,26,18",
+            "img": "/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": true,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Healing Ward",
+            "behavior": "AOE,Point Target",
+            "dmg_type": null,
+            "target_team": null,
+            "target_type": null,
+            "bkbpierce": "Yes",
+            "desc": "Summons a Healing Ward which heals all nearby allied units, based on their maxhealth. The Healing Ward moves at 325 movement speed after being summoned. Lasts25.0 seconds. ",
+            "attrib": [
+                {
+                    "key": "healing_ward_heal_amount",
+                    "header": "MAX HEALTH PER SECOND:",
+                    "value": [
+                        "2%",
+                        "3%",
+                        "4%",
+                        "5%"
+                    ]
+                },
+                {
+                    "key": "healing_ward_aura_radius",
+                    "header": "RADIUS:",
+                    "value": "400"
+                },
+                {
+                    "key": "healing_ward_movespeed_tooltip",
+                    "header": "HEALING WARD MOVESPEED TOOLTIP:",
+                    "value": "325",
+                    "generated": true
+                },
+                {
+                    "key": "healing_ward_bonus_health",
+                    "header": "HEALING WARD BONUS HEALTH:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "healing_ward_hits_to_kill_tooltip",
+                    "header": "HITS TO DESTROY:",
+                    "value": "1"
+                },
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "350",
+                    "generated": true
+                },
+                {
+                    "key": "abilityduration",
+                    "header": "DURATION:",
+                    "value": "25",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                }
+            ],
+            "mc": "140,130,120,110",
+            "cd": "60",
+            "img": "/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Blade Dance",
+            "behavior": "Passive",
+            "dmg_type": null,
+            "target_team": null,
+            "target_type": null,
+            "bkbpierce": null,
+            "desc": "Gives Juggernaut a chance to deal critical damage on each attack. ",
+            "attrib": [
+                {
+                    "key": "blade_dance_crit_chance",
+                    "header": "CRITICAL CHANCE:",
+                    "value": [
+                        "20%",
+                        "25%",
+                        "30%",
+                        "35%"
+                    ]
+                },
+                {
+                    "key": "blade_dance_crit_mult",
+                    "header": "CRITICAL DAMAGE:",
+                    "value": "190%"
+                },
+                {
+                    "key": "blade_dance_lifesteal",
+                    "header": "BLADE DANCE LIFESTEAL:",
+                    "value": "0",
+                    "generated": true
+                }
+            ],
+            "mc": null,
+            "cd": null,
+            "img": "/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png",
+            "ability_has_scepter": false,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Swiftslash",
+            "behavior": "Unit Target",
+            "dmg_type": "Physical",
+            "target_team": "Enemy",
+            "target_type": "Hero,Basic",
+            "bkbpierce": "Yes",
+            "desc": "Performs a short Omnislash for 1 seconds. ",
+            "attrib": [
+                {
+                    "key": "duration",
+                    "header": "DURATION:",
+                    "value": "1"
+                },
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "550"
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                }
+            ],
+            "mc": "125",
+            "cd": "20",
+            "img": "/apps/dota2/images/dota_react/abilities/juggernaut_swift_slash.png",
+            "ability_has_scepter": true,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": true,
+            "ability_is_granted_by_shard": false
+        },
+        {
+            "dname": "Omnislash",
+            "behavior": "Unit Target",
+            "dmg_type": "Physical",
+            "target_team": "Enemy",
+            "target_type": "Hero,Basic",
+            "bkbpierce": "Yes",
+            "desc": "Juggernaut leaps towards the target enemy units, and then slashes the target andother nearby enemy units at an increased attack rate. Juggernaut is invulnerablefor the duration. ",
+            "attrib": [
+                {
+                    "key": "attack_rate_multiplier",
+                    "header": "SLASHES RATE MULTIPLIER:",
+                    "value": "1.5"
+                },
+                {
+                    "key": "bonus_damage",
+                    "header": "BONUS DAMAGE:",
+                    "value": [
+                        "30",
+                        "40",
+                        "50"
+                    ]
+                },
+                {
+                    "key": "bonus_attack_speed",
+                    "header": "BONUS ATTACK SPEED:",
+                    "value": "40"
+                },
+                {
+                    "key": "duration",
+                    "header": "DURATION:",
+                    "value": [
+                        "3",
+                        "3.25",
+                        "3.5"
+                    ]
+                },
+                {
+                    "key": "omni_slash_radius",
+                    "header": "SLASH JUMP RADIUS:",
+                    "value": "425"
+                },
+                {
+                    "key": "abilitycastrange",
+                    "header": "CAST RANGE:",
+                    "value": "350"
+                },
+                {
+                    "key": "dispel",
+                    "header": "DISPEL:",
+                    "value": "0",
+                    "generated": true
+                },
+                {
+                    "key": "abilitycastpoint",
+                    "header": "CAST TIME:",
+                    "value": "0.3",
+                    "generated": true
+                }
+            ],
+            "mc": "200,275,350",
+            "cd": "120",
+            "img": "/apps/dota2/images/dota_react/abilities/juggernaut_omni_slash.png",
+            "ability_has_scepter": true,
+            "ability_has_shard": false,
+            "ability_is_granted_by_scepter": false,
+            "ability_is_granted_by_shard": false
+        }
+    ]
+}

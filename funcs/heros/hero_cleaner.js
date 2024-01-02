@@ -3,17 +3,17 @@ const fs = require("fs")
 const { convert } = require('html-to-text');
 
 
-const convertor=(html)=>{
+const convertor = (html) => {
     return convert(html,
         {
-            selectors:[
+            selectors: [
                 {
-                    selector:"br",
-                    format:"skip"
+                    selector: "br",
+                    format: "skip"
                 }
             ]
         }
-        ).replaceAll("\n","")
+    ).replaceAll("\n", "")
 }
 
 const hero_cleaner = {
@@ -43,7 +43,7 @@ const hero_cleaner = {
         const { name } = hero_main_file
         const hero_file = files.read_file(`../heroes_data/${name}.json`)
         const { max_health, max_mana, turn_rate, armor, damage_max, damage_min, primary_attr
-            , str_base, agi_base, int_base
+            , str_base, agi_base, int_base, abilities: main_ab
         } = hero_file
         const hero_abilities_name = this.all_files.hero_abilities[id]
         const { abilities, talents } = hero_abilities_name
@@ -52,13 +52,23 @@ const hero_cleaner = {
             return { ...t, name: selected_talent.displayName, id: selected_talent.id, level: (Math.floor(t.slot / 2) + 1) }
         })
 
-        const clean_abilities = abilities.map(ab => {
+        const clean_abilities = abilities.map((ab, index) => {
             const selected_ab = this.all_files.comp_abilities[ab.abilityId]
             const { name, language, stat } = selected_ab
             const { hasShardUpgrade, isGrantedByShard, isGrantedByScepter, hasScepterUpgrade } = stat
             const { displayName, description, attributes } = language
             const secondary_file = this.all_files.abilities[name]
             const { behavior, dmg_type, bkbpierce, target_team, target_type, attrib } = secondary_file
+            const desc = `${convertor(description[0])}${hasScepterUpgrade && language.aghanimDescription ? ` \n\n Aghanim Upgrade: ${convertor(language.aghanimDescription)}` : ""} ${hasShardUpgrade && language.shardDescription ? `${`\n\n Shard Upgrade: ${convertor(language.shardDescription)}`}` : ""}`
+            const split = (desc.split(/[%%]/i))
+            const sp_values = main_ab[index]?.special_values
+            split.forEach((w, index) => {
+                const s = sp_values?.find(e => w.length < 40 && w.indexOf(e.name) > -1)
+                if (s) {
+                    console.log({s});
+                    split[index] = s.values_float[0] || s.values_shard[0]
+                }
+            })
             return {
                 dname: displayName,
                 behavior: behavior?.toString() || null,
@@ -66,7 +76,7 @@ const hero_cleaner = {
                 target_team: target_team?.toString() || null,
                 target_type: target_type?.toString() || null,
                 bkbpierce: bkbpierce || null,
-                desc: `${convertor(description[0])}${hasScepterUpgrade && language.aghanimDescription ? ` \n\n Aghanim Upgrade: ${convertor(language.aghanimDescription)}` : ""} ${hasShardUpgrade && language.shardDescription ? `${`\n\n Shard Upgrade: ${convertor(language.shardDescription)}`}` : ""}`,
+                desc: split.join(" "),
                 // attrib: attributes.map(at => {
                 //     const spited = at.split(":")
                 //     return {
