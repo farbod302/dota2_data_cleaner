@@ -1,6 +1,7 @@
 const express = require("express")
 const player_games = require("../funcs/players/player_games")
 const files = require("../helpers/files")
+const { get_player_data } = require("../funcs/players/player_ptofile")
 
 const router = express.Router()
 
@@ -225,6 +226,16 @@ router.get("/match_detail/:match_id", async (req, res) => {
     })
 })
 
+
+router.post("/player_rank", async (req, res) => {
+    const { dota_id } = req.body
+    const data = await get_player_data(dota_id)
+    res.json({
+        status: true,
+        msg: "",
+        data: { ...data }
+    })
+})
 
 
 
