@@ -2,6 +2,20 @@ const files = require("../../helpers/files")
 const fs = require("fs")
 const { convert } = require('html-to-text');
 
+
+const convertor=(html)=>{
+    return convert(html,
+        {
+            selectors:[
+                {
+                    selector:"br",
+                    format:"skip"
+                }
+            ]
+        }
+        )
+}
+
 const hero_cleaner = {
 
     HERO_IDS: 150,
@@ -52,7 +66,7 @@ const hero_cleaner = {
                 target_team: target_team?.toString() || null,
                 target_type: target_type?.toString() || null,
                 bkbpierce: bkbpierce || null,
-                desc: `${convert(description[0])}${hasScepterUpgrade && language.aghanimDescription ? ` \n\n Aghanim Upgrade: ${convert(language.aghanimDescription)}` : ""} ${hasShardUpgrade && language.shardDescription ? `${`\n\n Shard Upgrade: ${convert(language.shardDescription)}`}` : ""}`,
+                desc: `${convertor(description[0])}${hasScepterUpgrade && language.aghanimDescription ? ` \n\n Aghanim Upgrade: ${convertor(language.aghanimDescription)}` : ""} ${hasShardUpgrade && language.shardDescription ? `${`\n\n Shard Upgrade: ${convertor(language.shardDescription)}`}` : ""}`,
                 // attrib: attributes.map(at => {
                 //     const spited = at.split(":")
                 //     return {
