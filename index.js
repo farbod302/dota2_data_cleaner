@@ -100,4 +100,3 @@ app.listen(3434)
 
 
 
-hero_cleaner.clean_all()
